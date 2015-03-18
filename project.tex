@@ -2,7 +2,7 @@
 
 \usepackage[compact]{titlesec}  
 \usepackage{xspace}
-\usepackage[margin=0.55in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
@@ -60,6 +60,7 @@ In this project, we aim to answer the following questions:
 
 \paragraph{Graph G1: Undirected Graph.}
 \begin{itemize}
+%\squish
 \item {Vertices:} Inventors  ($I_1$, $I_2$, ...)
 \item {Edges:} Patent IDs
 \end{itemize}
@@ -69,6 +70,7 @@ Since two inventors can have multiple joint patents, the weight signifies the nu
 
 \paragraph{Graph G2: Directed Graph.}
 \begin{itemize}
+%\squish
 \item {Vertices:} Inventors ($I_1$, $I_2$, ...) or Patents ($P_1$, $P_2$, ...)
 \item {Edges:} References or Inventions
 \end{itemize}
@@ -78,6 +80,7 @@ There exists a directed `reference’ edge from $P_1$ to $P_2$ if $P_1$ referenc
 
 \subsection{Definitions}
 \begin{itemize}
+%\squish
 \item {\em Collaborative distance.} For any two inventors, we define the collaborative distance as the length of the shortest path in Graph G1. 
 \item {\em Invention impact.} For a given inventor, we define his / her invention impact as the eigenvalue centrality for this inventor in Graph G2. 
 \end{itemize}
@@ -95,6 +98,7 @@ In a nutshell, the answers to our questions framed in our problem description fo
 		
 \section{Underlying assumptions} % (if any)
 \begin{itemize}
+%\squish
 \item We consider only a subset of the entire patents that were granted till date. Specifically, we study patents granted from year 2005 to 2015. This assumption helps us to reduce the dataset size, allows to study the current trend in innovation and makes the pre-processing easier due to the consistency in data format (all the archives are in XML from year 2005 onwards).
 \item Hence, we ignore all the references to patents before 2005. 
 \item We also ignore the references to Non-US patents and other sources.
@@ -113,6 +117,7 @@ The dataset includes patent number, series code and application number, type of 
 \paragraph{Tools.}
 We plan to use the following tools for our project.
 \begin{itemize}
+%\squish
 \item Gephi and / or IGraph: Graph analysis and metric calculation~\cite{gephi, igraph}.
 \item GraphViz, Gnuplot: Data visualization and result plotting~\cite{graphviz, gnuplot}.
 \item Standard libraries and custom Python Scripts: For data extraction~\cite{python}.
@@ -120,6 +125,7 @@ We plan to use the following tools for our project.
 
 \section{Key Activities}
 \begin{itemize}
+%\squish
 \item {\em Data Processing:} Extract data from XML to CSV / Graphml format.
 \item {\em Inventor Disambiguation:} Run a simple pre-processing algorithm to generate a list of unique inventors.  This is crucial to decide on whether two inventors with similar names are the same person or not.
 \item {\em Eigenvalue centrality:} Use the Newman's leading eigenvector algorithm in IGraph to calculate eigenvalue centrality for each unique inventor with respect to patents that cite his / her patent.
@@ -129,6 +135,7 @@ We plan to use the following tools for our project.
 
 \section{Success Measures} %(in terms of evaluation, experimentation, testing, etc.)
 \begin{itemize}
+%\squish
 \item Test the algorithms for computing shortest path and analyze their scalability with respect to the nature of the patent network graph
 \item Compare our ranking results for the most innovative organization with publicly available list such as Forbes list, to check if our ranking metric coincides with the results of other metrics[cite@loi].
 \end{itemize}
@@ -155,6 +162,7 @@ We plan to use the following tools for our project.
 
 \section{Deliverables / accomplishments }
 \begin{itemize}
+%\squish
 \item Source code and processed dataset
 \item Ranking of organization according to the impact w.r.t to approved patents
 \item Plot of invention impact vs collaborative distance to answer Question 1
@@ -163,6 +171,7 @@ We plan to use the following tools for our project.
 \end{itemize}
 
 {
+\footnotesize
 \bibliography{project}
 }
 \end{document}

@@ -2,9 +2,13 @@
 
 \usepackage[compact]{titlesec}  
 \usepackage{xspace}
-\usepackage[margin=0.75in]{geometry}
+\usepackage[margin=1in]{geometry}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
 
 \renewcommand{\paragraph}{\vspace{3pt}\noindent\textbf}
+\newcommand{\etal}{\textit{et al}.\xspace}
 \newcommand{\squish}{
   \setlength{\topsep}{0pt}
   \setlength{\itemsep}{0ex}
@@ -32,6 +36,7 @@ Innovation is credited with creating the emerging trends in technology. Patents 
 
 Patent citations allow one to study importance of individual patents. The inventor collaboration represents the state of the innovation environment and the overall contribution of the organization to the invention field. We focus our study on these two aspect of the social network of US inventions, and propose metrics to compare the innovative throughput of a given organization. While doing this, we carefully account for both the qualitative as well as the quantitative impact of the organization as a whole thus capturing the enormous heterogeneity in the value of patents. In this project, we study the inventor and bibliometrics network of the patents granted by United States Patent and Trademark Office (USPTO).
 
+\input{literature}
 \section{Problem Description} 
 In this project, we aim to answer the following questions:
 

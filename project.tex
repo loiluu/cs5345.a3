@@ -75,8 +75,8 @@ Since two inventors can have multiple joint patents, the weight signifies the nu
 \item {Edges:} References or Inventions
 \end{itemize}
 
-There exists an `invention’ edge between $I_1$ and $P_1$ if $I_1$ is an inventor of $P_1$.
-There exists a directed `reference’ edge from $P_1$ to $P_2$ if $P_1$ references $P_2$
+There exists an `invention' edge between $I_1$ and $P_1$ if $I_1$ is an inventor of $P_1$.
+There exists a directed `reference' edge from $P_1$ to $P_2$ if $P_1$ references $P_2$
 
 \subsection{Definitions}
 \begin{itemize}
@@ -86,14 +86,14 @@ There exists a directed `reference’ edge from $P_1$ to $P_2$ if $P_1$ referenc
 \end{itemize}
 
 \subsection{Insight}
-In our model, the impact of an inventor is measured by the number of patents he / she invents (quantity) as well as the number of references for each of these patents (quality). Thus, intuitively, the more is the eigenvalue centrality measure, the inventor is more ‘impactful’. Similarly, we use collaborative distance to measure the ‘connectedness’ between two inventors. Thus, intuitively, the smaller the collaborative distance, the closer they are to each other in terms of connection in the graph. 
+In our model, the impact of an inventor is measured by the number of patents he / she invents (quantity) as well as the number of references for each of these patents (quality). Thus, intuitively, the more is the eigenvalue centrality measure, the inventor is more `impactful'. Similarly, we use collaborative distance to measure the `connectedness' between two inventors. Thus, intuitively, the smaller the collaborative distance, the closer they are to each other in terms of connection in the graph. 
 In a nutshell, the answers to our questions framed in our problem description follow from these insights:
 
-\paragraph{Answer 1.} Check the correlation between Collaborative distance and Invention Impact 
+\paragraph{Answer 1.} Check the correlation between collaborative distance and invention impact. 
 
-\paragraph{Answer 2.} Check the correlation between Collaborative distance and Organization
+\paragraph{Answer 2.} Check the correlation between collaborative distance and organization.
 
-\paragraph{Answer 3.} Check the correlation between Invention Impact and Organization
+\paragraph{Answer 3.} Check the correlation between invention impact and organization.
 
 		
 \section{Underlying assumptions} % (if any)
@@ -102,8 +102,9 @@ In a nutshell, the answers to our questions framed in our problem description fo
 \item We consider only a subset of the entire patents that were granted till date. Specifically, we study patents granted from year 2005 to 2015. This assumption helps us to reduce the dataset size, allows to study the current trend in innovation and makes the pre-processing easier due to the consistency in data format (all the archives are in XML from year 2005 onwards).
 \item Hence, we ignore all the references to patents before 2005. 
 \item We also ignore the references to Non-US patents and other sources.
-\item To identify whether similar names correspond to a single inventor (e.g., John Doe and John S. Doe), we consider if combination of first name, last name, state and country is unique, and if so, group all such names under a single inventor.
-\item Patents with Missing organization name  are assigned to ‘Individual patents’.
+\item To identify whether similar names correspond to a single inventor (e.g., John Doe and John S. Doe), we consider if combination of first name, last name, state and country is unique, and if so, group all such names under a single inventor. 
+\item We do not perform any analysis for disambiguating organization names. For example, IBM Corp. vs. International Business Machines Corporation are considered different organizations.
+\item Patents with Missing organization name  are assigned to `Individual patents'.
 \item If the two nodes for collaborative distance belong to two disconnected graphs, then we assume the distance to be infinite.
 \end{itemize}
 
@@ -126,7 +127,7 @@ We plan to use the following tools for our project.
 \section{Key Activities}
 \begin{itemize}
 %\squish
-\item {\em Data Processing:} Extract data from XML to CSV / Graphml format.
+\item {\em Data Processing:} Extract data from XML to CSV / GraphML format.
 \item {\em Inventor Disambiguation:} Run a simple pre-processing algorithm to generate a list of unique inventors.  This is crucial to decide on whether two inventors with similar names are the same person or not.
 \item {\em Eigenvalue centrality:} Use the Newman's leading eigenvector algorithm in IGraph to calculate eigenvalue centrality for each unique inventor with respect to patents that cite his / her patent.
 \item {\em Collaborative distance:} Calculate the shortest path of each inventor w.r.t to the inventor with maximum eigenvalue centrality in the whole graph. As a sub-activity, we plan to use three algorithms viz. Djikstra, Bellman-Ford, Johnson from IGraph to compare their performance.

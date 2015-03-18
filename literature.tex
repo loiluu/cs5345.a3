@@ -1,4 +1,4 @@
-\section{Literature review}
+\section{Literature Review}
 % Introduction to patent:
 % Patent has a lot of information about innovation, represents the inventive progress of social.
 % A good source to study about change and trend in science and technology.
@@ -10,12 +10,12 @@
 
 \subsection{United States Patent research}
 
-\paragraph{US patent} United States patent database has become widely accessible to researchers and public since the early 1990s. The rich information included in the database cover almost all patents filed in the US in the last four decades. Each patent contains various information about an innovation, together all of them represent the inventive progress of technology and science not only in the US but also around the world~\footnote{In the late 1990s, around 45\% of US patents are awarded to foreign inventors.}. More specially, each patent is highly detailed to cover every
-aspect of the invention, enabling us to study the progress from different angles. For example, information included in a patent contains the its belonging technological area, the inventors, the assignee,  terms of fields, types of inventors, citation to another patents, etc.
-The database is also a good source to for investigating the change and trend in innovative activity over a particular period of time. 
+\paragraph{US patent.} United States patent database has become widely accessible to researchers and public since the early 1990. The rich information included in the database cover almost all patents filed in the US in the last four decades. Each patent contains various information about an innovation, together all of them represent the inventive progress of technology and science not only in the US but also around the world~\footnote{In the late 1990s, around 45\% of US patents were awarded to foreign inventors.}. More specially, each patent is highly detailed to cover every
+aspect of the invention, enabling us to study the progress from different angles. For example, information included in a patent contains  the technological area, the inventors, the assignee,  terms of fields, types of inventors, citation to another patents, etc.
+The database is also a good source  for investigating the change and trend in innovation over a particular period of time. 
 
 
-\paragraph{US patent research analysis} Early research in US patent data goes
+\paragraph{US patent research analysis.} Early research in US patent data goes
 back at least to the 1960s when many researchers used patent data in economics
 analysis and technology change. For example, in 1966,  Schmookler relates
 industries to patent counts~\cite{Schmookler1966}, or in 1982, Griliches
@@ -26,7 +26,7 @@ The simple patent count matrix does not allow them to faithfully capture more
 aspects of the information included in each patent and the relation between
 patents~\cite{Griliches1987}.
 
-In another line of research, often researchers consider the patent database as
+On other hand, often researchers consider the patent database as
 an ``inventor network", in which nodes are inventor or patent, while an edge
 represents a citation between patents or a collaboration between two inventors.
 Studying this network reveals multiple linkage between inventors,
@@ -44,7 +44,7 @@ measurement and across several main technology categories. Many later works
 follow Hall~\etal's direction to study different problems in patent
 analysing~\cite{Leskovec:2005, Hall2000, leskovec2007graph, Acs2002}.
 
-\paragraph{Extracting and formating data in patent} A general technical problem
+\paragraph{Extracting and formating data in patent.} A general technical problem
 when doing patent analysis is how to extract and format data from patent
 database. Typically, the data is available in Extensible Markup Language (XML)
 format. However, since the patent is often objectively prepared by individual,
@@ -54,7 +54,7 @@ the data set, thus limiting potential statistical and analytical analysis. For e
 \subsection{Shortest path problem}
 Given a graph $G = (V, E)$, we study the problem of finding the shortest path between a source node $u \in V$ and a destination node $v \in V$. In normal graph, the length of a path is the total of nodes along that path. However, in weighted graph where each edge $e_i = (u, v)$ has a weight $w_i$, the length of a path is computed as the total weigh of all edges in the path. For simplicity, we consider the normal graph as the weighted one with all $w_i=1$.
 
-\paragraph{Shortest path from a given vertex} If the source node $u$ is fixed, there exist two popular algorithm to find the shortest path from $u$ to any $v$.
+\paragraph{Shortest path from a given vertex.} If the source node $u$ is fixed, there exist two popular algorithm to find the shortest path from $u$ to any $v$.
 	\begin{itemize}
 		\item {\bf Dijkstra algorithm} works only for the graph of non-negative edges. The general idea of Dijkstra algorithm is to find the nearest unvisted node to $u$, namely $k$, at every iteration. After that, the distances of $k$'s neighbors to $u$ are updated based on the distance of $k$ to $u$ and $k$ to that node. The time complexity of the algorithm without/with a min-priority queue are $O(|V|^2)$ and  $O(|E|+|V|\log|V|)$ respectively (where $|V|$ is the number of nodes, $|E|$ is the number of edges).
 
@@ -64,7 +64,7 @@ Given a graph $G = (V, E)$, we study the problem of finding the shortest path be
 		The key observation is that any shortest path from $u$ to $v$ in $G$ will have at most $|V|−1$ edges. Thus, we answer the question by sequentially looking for shortest path between $u$ and $v$ which has at most $1, 2, ..., |V|-1$ edges. The algorithm runs in  $O(|V|\cdot |E|)$ time, where $|V|$ and $|E|$ are the number of vertices and edges respectively.
 	\end{itemize}
 
-\paragraph{Shortest path between any pair of vertices}
+\paragraph{Shortest path between any pair of vertices.}
 The problem of shortest path between any pair of vertices can be easily solved by running $|V|$ times the above problem of shortest path from a given vertex. The best complexity of such approach is by using Dijkstra algorithm with min-priority queue ($O(|V|\cdot|E|+|V|^2\log|V|)$). We will discuss the other alternatives to address the problem in this section.
 	\begin{itemize}	
 		\item {\bf Floyd-Warshall algorithm} runs in $O(|V|^3)$. The psudo-code is illustrated in Algorithm~\ref{alg:floyd-war}. The key idea is to improve the estimate distance between $u$ and $v$ by visiting all the nodes and see if the node is in the shortest path between $u$ and $v$.
@@ -95,7 +95,7 @@ The problem of shortest path between any pair of vertices can be easily solved b
 \end{algorithm}
 
 \subsection{Eigenvector centrality}
-\paragraph{Eigenvector centrality} measures the relative centrality of nodes by taking its neighbor nodes into account. The scoring system is designed to differentiate between the connections to a high-scoring node and a low-scoring node, in a sense that connecting to the high-scoring node will make the node more central. Given a graph $G:=(V,E)$ and let $A = (a_{v,t}\in\{0, 1\})$ be the adjacency matrix, the formula to compute the score of a node $v$ is illustrated in Equation~\eqref{eq:eigenvector}
+\paragraph{Eigenvector centrality.} measures the relative centrality of nodes by taking its neighbor nodes into account. The scoring system is designed to differentiate between the connections to a high-scoring node and a low-scoring node, in a sense that connecting to the high-scoring node will make the node more central. Given a graph $G:=(V,E)$ and let $A = (a_{v,t}\in\{0, 1\})$ be the adjacency matrix, the formula to compute the score of a node $v$ is illustrated in Equation~\eqref{eq:eigenvector}
 
 \begin{equation}
 	\label{eq:eigenvector}
@@ -104,6 +104,6 @@ The problem of shortest path between any pair of vertices can be easily solved b
 where $M(v)$ is the collection of the neighbors of v and $\lambda$ is a constant called eigenvalue~\cite{Eigenvecto-wiki}.
 
 
-\paragraph{Katz centrality} A variant of Eigenvector centrality is Katz centrality, which computes a node score also by taking influence of other nodes into account. In this case, the distance from all other nodes are considered, and the larger the distance between $u, v$, the smaller the influence that $u$ and $v$ have on each other. Interested readers are referred to~\cite{katz-wiki} for more details.
+\paragraph{Katz centrality.} A variant of Eigenvector centrality is Katz centrality, which computes a node score also by taking influence of other nodes into account. In this case, the distance from all other nodes are considered, and the larger the distance between $u, v$, the smaller the influence that $u$ and $v$ have on each other. Interested readers are referred to~\cite{katz-wiki} for more details.
 
-\paragraph{Pagerank algorithm} Another variant of Eigenvector centrality is PageRank used by Google Search~\cite{pagerank-wiki} to rank the websites in their search results. The difference between Pagerank and Eigenvector centrality and Katz centrality is that the connecting neighbors are taken into account, not the connected nodes. For example, in Eigenvector centrality, all nodes $v$ so that $a_{u, v}= 1$ will have affect on $u$'s score, while in Pagerank, only nodes $v$ having $a_{v, u} = 1$ will do.
+\paragraph{Pagerank algorithm.} Another variant of Eigenvector centrality is PageRank used by Google Search~\cite{pagerank-wiki} to rank the websites in their search results. The difference between Pagerank and Eigenvector centrality and Katz centrality is that the connecting neighbors are taken into account, not the connected nodes. For example, in Eigenvector centrality, all nodes $v$ so that $a_{u, v}= 1$ will have affect on $u$'s score, while in Pagerank, only nodes $v$ having $a_{v, u} = 1$ will do.

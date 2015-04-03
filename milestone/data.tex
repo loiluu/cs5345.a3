@@ -15,7 +15,7 @@ references.
 \subsection{Pre-processing}
 
 \begin{itemize}
-\item {\em Collection \& Parsing:} We download the patent files from year 2005 to 2013 from the Google's portal for USPTO bulk patent download~\cite{google-uspto}. These files are in various XML formats between v4.0 to v4.4. For the grant data prior to 2005, we use the truncated version from the Harvard DVN database~\cite{harvardDVN}. Then we interpret the structured XML data, read it into python dictionaries and insert the compiled records into our SQLite database. We use the existing tools available from XML parsing and processing written in Python~\cite{funginstitute, fungpaper}. 
+\item {\em Collection \& Parsing:} We download the patent files from year 2005 to 2013 from the Google's portal for USPTO bulk patent download~\cite{google-uspto}. These files are in various XML formats between v4.0 to v4.4. For the grant data prior to 2005, we use the truncated version from the Harvard DVN database~\cite{dvn}. Then we interpret the structured XML data, read it into python dictionaries and insert the compiled records into our SQLite database. We use the existing tools available from XML parsing and processing written in Python~\cite{newparser, formattingpatentdata, fungpaper}. 
 
 \item {\em Disambiguation:} We run the author and organization disambiguation algorithms on this dataset, to cluster the inventors and organizations. Each unique entity is assigned a new internal ID, which we use for our graphs. The information about the disambiguated records is incorporated in the database. 
 
@@ -38,7 +38,7 @@ Patent ID, name and address of all the inventors and assignees, year of patent g
 
 \subsection{Author \& Organization Disambiguation}
 
-Apart from the primary dataset from USPTO, we use secondary data sets which are necessary for the disambiguation. Specifically, we use the NBER patent database which contains patents granted from 1975-1999, Micropatent, USPTO CASSIS dataset for patent classification, National Geospatial-Intelligence Agency and US Board Geographic Names data sets. The secondary datasets are purely used for disambiguation and is not used for our main evaluation. These data sets are implicitly used for by the disambiguation algorithm available from ~\cite{harvard-dismbi}.
+Apart from the primary dataset from USPTO, we use secondary data sets which are necessary for the disambiguation. Specifically, we use the NBER patent database which contains patents granted from 1975-1999~\cite{NBER}, Micropaten~\cite{micropatent}, USPTO CASSIS dataset for patent classification, National Geospatial-Intelligence Agency and US Board Geographic Names data sets~\cite{geocoding, geotable}. The secondary datasets are purely used for disambiguation and is not used for our main evaluation. These data sets are implicitly used for by the disambiguation algorithm available from ~\cite{disambiguation}.
 
 \begin{figure}[H]
 		  \centering	
@@ -52,7 +52,7 @@ Apart from the primary dataset from USPTO, we use secondary data sets which are 
 
 Patent dataset is notoriously well known for disambiguation, since the patent office does not enforce uniqueness of names both for the inventor and the assignee organization. Thus, it is difficult to identify whether similar names correspond to a single inventor (e.g., John Doe and John S. Doe). This problem exacerbates in studies which are sensitive to the uniqueness of these entities.
 For our study we piggyback on existing algorithm proposed by Lai \etal, and consider first name, last name, state and country and organization name for disambiguation.
-Here, we briefly summarize the main insights used in this algorithm. The exact details are available at ~\cite{harvard-disambi}. 
+Here, we briefly summarize the main insights used in this algorithm. The exact details are available at ~\cite{disambiguation}. 
 
 Ideally, we would like to do an exhaustive pair-wise comparison of inventor-patent pair in dataset to check if they match or not. However, such search is of quadratic order and will incur 32 trillion comparisons for a dataset of 8 million records. 
 To circumvent this challenge, the algorithm devices a cleaver heuristic called {\em blocking}. 
@@ -61,7 +61,7 @@ analyzed independently of the rest of the records, so as to accelerate the proce
 It uses a trained probabilistic model which assumes multidimensional data and provides natural likelyhood-based framework for clustering. Further, the training is done via automatically generated training sets which are tailored to have highly probable matches and non-matches of samples. Further, the model is trained on intentionally generic predictive features such as relation between first name, last name, co-authors, technology class, location co-ordinates, assignee etc. 
 
 \paragraph{Organization Disambiguation.}
-We plan to use the algorithm by Fierro \etal for assignee disambiguation in our next phase of evaluation.
+We plan to use the algorithm by Fierro \etal for assignee disambiguation in our next phase of evaluation~\cite{newdisambiguation}.
 
 
 

@@ -42,6 +42,7 @@ simplicity, we consider the normal graph as the weighted one with all $w_i=1$.
 fixed, there are two popular algorithm to find the shortest path from $u$ to
 any $v$.
 	\begin{itemize}
+	\squish
 		\item {\bf Dijkstra algorithm} works only for a graph with non-negative 
 		edge weights. The general idea of Dijkstra algorithm is to find the
 		nearest unvisited node to $u$, namely $k$, at every iteration. After
@@ -78,6 +79,7 @@ The best complexity of such approach is by using Dijkstra algorithm with min-
 priority queue ($O(|V|\cdot|E|+|V|^2\log|V|)$). We will discuss the other
 alternatives to address the problem in this section.
 	\begin{itemize}	
+	\squish
 		\item {\bf Floyd-Warshall algorithm} runs in $O(|V|^3)$. The pseudo-code 
 		is illustrated in Algorithm~\ref{alg:floyd-war}. The key idea is
 		to improve the estimated distance between $u$ and $v$ by visiting all

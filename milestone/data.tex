@@ -5,3 +5,60 @@
 \subsection{Author Disambiguation}
 
 \subsection{Organisation Disambiguation}
+
+
+\begin{table*}[h] 
+  \centering
+  \begin{tabular}{@{}c@{}} 
+
+  \begin{minipage}{0.25\linewidth}
+
+\begin{lstlisting}[caption=Head Node ]
+<node id="n196819">
+  <data key="Loc">BOZEMAN-MT-US</data>
+  <data key="Name">BERG, LLOYD</data>
+  <data key="Assignee">None</data>
+  <data key="AsgNum"></data>
+  <data key="id">04292142-1</data>
+  <data key="Patents">247</data>
+</node>
+\end{lstlisting}
+
+  \end{minipage}
+  \hspace{0.05\linewidth}
+  \begin{minipage}{0.25\linewidth}
+
+\begin{lstlisting}[caption=Tail Node]
+<node id="n471405">
+  <data key="Loc">BOZEMAN-MT-US</data>
+  <data key="Name">EDISON, THOMAS A</data>
+  <data key="Assignee"></data>
+  <data key="AsgNum"></data>
+  <data key="id">05147512-2</data>
+  <data key="Patents">1</data>
+</node>
+\end{lstlisting}
+
+  \end{minipage}
+  \hspace{0.05\linewidth}
+  \begin{minipage}{0.3\linewidth}
+
+\begin{lstlisting}[caption=Directed edge]
+
+
+
+
+<edge source="n196819" target="n471405">
+  <data key="tId">05147512-2</data>
+  <data key="hId">04292142-1</data>
+  <data key="AppYear">1991</data>
+  <data key="Weight">1</data>
+</edge>
+
+
+
+\end{lstlisting}
+
+  \end{minipage}
+  \end{tabular}
+\end{table*}

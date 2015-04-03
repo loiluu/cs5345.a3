@@ -10,7 +10,7 @@
 \usepackage{graphicx}
 \usepackage{pifont} 
 \usepackage{float} 
-% \usepackage{mwe} % new package from Martin scharrer
+\usepackage{listings}
 \usepackage{caption}
 
 
@@ -28,6 +28,41 @@
   \setlength{\itemsep}{0ex}
   %\vspace{-2ex}
   \setlength{\parskip}{0pt}
+}
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   %backgroundcolor=\color{lightgray},
+   %frame=bt,   
+   basicstyle=\ttfamily\tiny,
+   extendedchars=true,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=none,
+   % numberstyle=\scriptsize,
+   % numbersep=3pt,
+   tabsize=2,
+   keepspaces=false,
+   columns=flexible,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
 }
 
 \pagenumbering{roman}

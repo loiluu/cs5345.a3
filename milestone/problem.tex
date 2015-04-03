@@ -55,16 +55,7 @@ recent past? %(b) (eigen org)
 
 \subsection{Assumptions}
 \label{sec:assumptions}
-We use the USPTO patent grant full text dataset from January 2005 to February
-2015.  The dataset includes patent number, series code and application number,
-type of patent, filing date, title, issue date, inventor information, assignee
-name at time of issue, foreign priority information, related US patent
-documents, classification information, US and foreign references, attorney,
-agent or firm/legal representative, Patent Cooperation Treaty (PCT)
-information, abstract, specification, and claims for each patent. We consider
-only the following fields from the dataset for our study: patent number, issue
-date, inventor name, inventor address, assignee name at time of issue, US
-references.
+
 
 	\begin{itemize}
 	%\squish
@@ -87,6 +78,15 @@ references.
 
 
 \subsection{Contributions}
+
+To summarize, we make the following contributions:
+
+\begin{itemize} 
+\squish
+\item {Study the inventor network.} We study various properties of the inventor network in the US grant patent dataset for past four decades.  
+\item {Metrics for measuring innovation.} We device a fair metric to measure the innovativeness of an inventor and corresponding organization. This allows us to rank various organizations based on their innovations. 
+\item {Soundness of metrics.} We verify if our metrics are sound to qualitatively and quantitatively measure the innovation impact of an organization by comparing our ranking results to public lists.
+\end{itemize}
 
 
 % References:

@@ -54,7 +54,7 @@ evaluation, which is based on the co-author network.
 		also analyzed their scalability with respect to the invention network graph
 		and compared their performance.
 
-		\item {em Social Network Behavior:} Computed the distribution of the 
+		\item {\em Social Network Behavior:} Computed the distribution of the 
 		collaborative distance w.r.t. Thomas Edison for our network, and also studied
 		if the overall network follows power law for various popularity measures.
 
@@ -76,14 +76,20 @@ final analysis based on all the metric computations.
 		with such names into a single entity.
 
 		\item {\em Evaluation Phase II - Eigenvalue centrality:} Use the Newman's
-		leading eigenvector algorithm in IGraph to calculate eigenvalue centrality for
-		each unique inventor with respect to patents that cite his / her patent.
+		leading eigenvector algorithm in IGraph to calculate eigenvalue centrality
+		for each unique inventor with respect to patents that cite his / her patent~\footnote{We skipped this activity for now, because it relies on the citation graph. Instead we did the next activity which uses the co-inventorship graph that we generated in this milestone.}.
 
 		\item {\em Data analysis and comparison:} Plot the graphs for the above
 		generated data and analyze the relationship between the above two
 		measurements. Compare our ranking results for the most innovative organization
 		with publicly available list such as Forbes list, to check if our ranking
 		metric coincides with the results of other metrics.
+
+		\item{\em Considering time as a factor:} Optionally, we plan to study the evolution 
+		of the citation and the co-authorship network over a period of time, and if forming a 
+		link leads to increase / decrease in our measures. We have retained the time 
+		information in our data so far, but we may not be able to finish this task 
+		completely given the time constraints.
 
 	\end{itemize}
 

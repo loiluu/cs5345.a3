@@ -42,17 +42,34 @@ Apart from the primary dataset from USPTO, we use secondary data sets which are 
 
 \begin{figure}[H]
 		  \centering	
-          \includegraphics[scale=0.6]{../figures/process.pdf}
+          \includegraphics[scale=0.5]{../figures/process.pdf}
           \label{process}
-          \caption{Overview of data collection and pre-processing steps to generate the co-inventorship and citation graphs for this study.}
+          \caption{Overview of data collection and pre-processing steps to generate the co-inventorship and citation graphs.}
 \end{figure}
+
+
+\paragraph{Author Disambiguation Algorithm.}
+
+Patent dataset is notoriously well known for disambiguation, since the patent office does not enforce uniqueness of names both for the inventor and the assignee organization. Thus, it is difficult to identify whether similar names correspond to a single inventor (e.g., John Doe and John S. Doe). This problem exacerbates in studies which are sensitive to the uniqueness of these entities.
+For our study we piggyback on existing algorithm proposed by Lai \etal, and consider first name, last name, state and country and organization name for disambiguation.
+Here, we briefly summarize the main insights used in this algorithm. The exact details are available at ~\cite{harvard-disambi}. 
+
+Ideally, we would like to do an exhaustive pair-wise comparison of inventor-patent pair in dataset to check if they match or not. However, such search is of quadratic order and will incur 32 trillion comparisons for a dataset of 8 million records. 
+To circumvent this challenge, the algorithm devices a cleaver heuristic called {\em blocking}. 
+It first partitions the whole database into blocks which comprise of small groups of patent records which are more likely to be match. Thus, all the similar names (with small edit distance, same first name, last name, etc.) are 
+analyzed independently of the rest of the records, so as to accelerate the process. Due to this, the disambiguation problem boils down to a classification problem --- does. It can be addressed with fair precision using the standard Naive Bayes classifier. 
+It uses a trained probabilistic model which assumes multidimensional data and provides natural likelyhood-based framework for clustering. Further, the training is done via automatically generated training sets which are tailored to have highly probable matches and non-matches of samples. Further, the model is trained on intentionally generic predictive features such as relation between first name, last name, co-authors, technology class, location co-ordinates, assignee etc. 
+
+\paragraph{Organization Disambiguation.}
+We plan to use the algorithm by Fierro \etal for assignee disambiguation in our next phase of evaluation.
+
+
 
 
 \subsection{Data Consolidation \& Graph Construction}
 
 We construct two graphs after the disambiguation phase is complete. 
-The first graph is for the co-inventor network. 
-Each vertex is an inventor, while an edge represents that two inventors have a joint patent. 
+The first graph is for the co-inventor network, where a vertex is an inventor, while an edge represents that two inventors have a joint patent. The second graph is for the citation network, where the vertices can be inventors or patents and the edges are citations (See Section~\ref{sec:model} for details).
 We extract this information from our SQLite database, and generate a GraphML file for this network.
 Table~\ref{listing} shows an example entry from GraphML for this network.
 We report the statistics about the graph size and properties in Section~\cite{sec:eval}.

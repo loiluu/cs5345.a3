@@ -1,3 +1,4 @@
+
 \section{Implementation and Evaluation}
 \label{sec:eval}
 We describe in detail our implementation method and evaluation procedure for answering 
@@ -15,29 +16,7 @@ our goals using the patent dataset. The configuration of our experimental deskto
 \item Standard libraries and custom Python Scripts: For data extraction~\cite{python}.
 \end{itemize}
 
-\subsection{Graph Details}
-Table~\ref{tab:model} gives the details about Graph G1 in
-terms of its total number of nodes , edges , patents, the source node  of the graph
-and the average distance between the source node and all other nodes .  
- We choose Thomas Edison as our source node
-as he is one of the top and popular inventors in the patent dataset with maximum number of patents.
-We calculate the shortest path of all other nodes from Thomas Edison. 
-We run three algorithms particularly Djikstra shortest path algorithm, Bellman-ford and Johnson 
-available in IGraph tool on our Graph G1. 
-
-\subsection{Results}
-Table~\ref{tab:algos} shows the execution time for each of the three shortest path algorithms 
-when run on our graph G1. We observe that Djikstra's algorithm takes $1.28$ seconds, Bellman-ford takes
-$0.80$ seconds and Johnson algorithm takes $1.29$ seconds to run on our experimental setup.
-Figure~\ref{fig:distance} shows the result for the total number of inventors having the same
-distance from Edison. This graph follows a normal distribution. Figure~\ref{fig:patent} shows the log-log graph of the total no.of patents
-to total no.of inventors. We wil analyse whether this graph follows the power law distribution in our 
-final analysis step. Figure~\ref{fig:distance_patent} shows the relation of the distance from Edison and
-the no. of patents for an inventor. This graph also follows a normal distribution.
-
-
-
-\begin{table*}[h] 
+\begin{table*}[t] 
   %\centering
 	\scriptsize
   \begin{tabular}{@{}c@{}} 
@@ -88,7 +67,7 @@ the no. of patents for an inventor. This graph also follows a normal distributio
 
 % \end{minipage}
 
-\begin{table*}[h] 
+\begin{table*}[t] 
   %\centering
   \begin{tabular}{@{}c@{}} 
    \begin{minipage}{0.45\linewidth}
@@ -108,6 +87,26 @@ the no. of patents for an inventor. This graph also follows a normal distributio
   \end{tabular}
 \end{table*}
 
+
+\subsection{Graph Details}
+Table~\ref{tab:model} gives the details about Graph G1 in
+terms of its total number of nodes , edges , patents, the source node  of the graph
+and the average distance between the source node and all other nodes .  
+ We choose Thomas Edison as our source node
+as he is one of the top and popular inventors in the patent dataset with maximum number of patents.
+We calculate the shortest path of all other nodes from Thomas Edison. 
+We run three algorithms particularly Djikstra shortest path algorithm, Bellman-ford and Johnson 
+available in IGraph tool on our Graph G1. 
+
+\subsection{Results}
+Table~\ref{tab:algos} shows the execution time for each of the three shortest path algorithms 
+when run on our graph G1. We observe that Djikstra's algorithm takes $1.28$ seconds, Bellman-ford takes
+$0.80$ seconds and Johnson algorithm takes $1.29$ seconds to run on our experimental setup.
+Figure~\ref{fig:distance} shows the result for the total number of inventors having the same
+distance from Edison. This graph follows a normal distribution. Figure~\ref{fig:patent} shows the log-log graph of the total no.of patents
+to total no.of inventors. We wil analyse whether this graph follows the power law distribution in our 
+final analysis step. Figure~\ref{fig:distance_patent} shows the relation of the distance from Edison and
+the no. of patents for an inventor. This graph also follows a normal distribution.
 
 	%\begin{itemize}
 	%\squish

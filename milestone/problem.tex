@@ -1,0 +1,53 @@
+\section{Problem Description}
+
+\paragraph{Motivation.}
+
+
+\subsection{Objectives}
+ 
+In this project, we aim to answer the following questions:
+
+\paragraph{Question 1.} Is a inventor more impactful because he is closely
+connected to other impactful inventors in the patent social network? 
+%(c)(eigen erdos)
+
+\paragraph{Question  2.} Are inventors closely connected to an impactful
+inventor in their own organization or other organizations? %(a) (erdos org)
+
+\paragraph{Question  3.} Has the organization made impactful inventions in
+recent past? %(b) (eigen org)
+
+
+\subsection{Assumptions}
+
+We use the USPTO patent grant full text dataset from January 2005 to February
+2015.  The dataset includes patent number, series code and application number,
+type of patent, filing date, title, issue date, inventor information, assignee
+name at time of issue, foreign priority information, related US patent
+documents, classification information, US and foreign references, attorney,
+agent or firm/legal representative, Patent Cooperation Treaty (PCT)
+information, abstract, specification, and claims for each patent. We consider
+only the following fields from the dataset for our study: patent number, issue
+date, inventor name, inventor address, assignee name at time of issue, US
+references.
+
+	\begin{itemize}
+	%\squish
+		\item We consider only a subset of the entire patents that were granted till
+		date. Specifically, we study patents granted from year 2005 to 2015. This
+		assumption helps us to reduce the dataset size, allows to study the current
+		trend in innovation and makes the pre-processing easier due to the
+		consistency in data format (all the archives are in XML from year 2005
+		onwards). item Hence, we ignore all the references to patents before 2005.
+
+		\item We also ignore the references to Non-US patents and other sources. item
+		To identify whether similar names correspond to a single inventor (e.g., John
+		Doe and John S. Doe), we consider if combination of first name, last name,
+		state and country is unique, and if so, group all such names under a single
+		inventor.  item Patents with Missing organization name  are assigned to
+		`Individual patents'. item If the two nodes for collaborative distance belong
+		to two disconnected graphs, then we assume the distance to be infinite.
+	\end{itemize}
+
+
+\subsection{Contributions}

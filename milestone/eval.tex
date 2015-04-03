@@ -1,4 +1,45 @@
-\section{Evaluation}
+\section{Implementation and Evaluation}
+We describe in detail our implementation method and evaluation procedure for answering 
+our goals using the patent dataset.
+
+\subsection{Analysis Methodology}
+
+\begin{itemize}
+\squish
+\item Gephi and / or IGraph: Graph analysis and metric calculation~\cite{gephi, igraph}.
+
+\item GraphViz, Gnuplot: Data visualization and result plotting~\cite{graphviz, gnuplot}.
+
+\item Standard libraries and custom Python Scripts: For data extraction~\cite{python}.
+\end{itemize}
+
+\subsection{Experimental Setup}
+Following is the configuration of our experimental desktop machine.\\
+RAM - $32$ GB\\
+Processor - $XX.X$ GHz Intel i7 processor\\
+Platform - Ubuntu $14.04$
+
+\subsection{Graph Details}
+Table~\ref{tab:model} gives the details about Graph G1 in
+terms of its total number of nodes , edges , patents, the source node  of the graph
+and the average distance between the source node and all other nodes .  
+ We choose Thomas Edison as our source node
+as he is one of the top and popular inventors in the patent dataset with maximum number of patents.
+We calculate the shortest path of all other nodes from Thomas Edison. 
+We run three algorithms particularly Djikstra shortest path algorithm, Bellman-ford and Johnson 
+available in IGraph tool on our Graph G1. We observe that the average distance is $xx$ in our graph
+from the source node.
+
+\subsection{Results}
+Table~\ref{tab:algos} shows the execution time for each of the three shortest path algorithms 
+when run on our graph G1. We observe that Djikstra's algorithm takes $xx$ seconds, Bellman-ford takes
+$xx$ seconds and Johnson algorithm takes $xx$ seconds to run on our experimental setup.
+Figure~\ref{fig:distance} shows the result for the total number of inventors having the same
+distance from Edison. This graph follows a normal distribution. Figure~\ref{fig:patent} shows the log-log graph of the total no.of patents
+to total no.of inventors. We wil analyse whether this graph follows the power law distribution in our 
+final analysis step. Figure~\ref{fig:distance_patent} shows the relation of the distance from Edison and
+the no. of patents for an inventor. This graph also follows a normal distribution.
+
 
 
 \begin{table*}[h] 
@@ -18,7 +59,8 @@
 				Avg. Distance & 1.33 \\
 				\hline
 			\end{tabular}		
-			\caption {Should be a caption}
+			\caption {Details of the co-authorship graph}
+			\label{tab:model}
 
 			\vspace{0.85cm}
 
@@ -32,7 +74,8 @@
 				Algo III & 1.33 \\
 				\hline
 			\end{tabular}
-			\caption {Should be a caption}
+			\caption {Performance of the three shortest path algorithms}
+			\label{tab:algos}
 		\end{center}
 
   \end{minipage}
@@ -40,7 +83,9 @@
   \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/distance.pdf}
-          \caption{This is the second figure}
+          \caption{Graph shows the frequency of nodes on Y-axis and the distance from
+		Edison on X-axis }
+	  \label{fig:distance}
       \end{figure}
   \end{minipage}
   \end{tabular}
@@ -54,13 +99,15 @@
    \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/patent.pdf}
-          \caption{This is the third figure}
+          \caption{Log-log scale graph of no. of patents on Y-axis and the no.of inventors on X-axis}
+	  \label{fig:patent}	
       \end{figure}
   \end{minipage}
   \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/distance_patent.pdf}
-          \caption{This is the first figure}
+          \caption{Relationship graph of no. of patents of an inventor and his distance from Edison}
+	  \label{fig:distance_patent}
       \end{figure}
   \end{minipage}
   \end{tabular}

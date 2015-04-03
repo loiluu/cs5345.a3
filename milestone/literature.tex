@@ -7,9 +7,11 @@
 % Economic: relating patent counts to industry & Compustat firms
 % Find all distinct inventors and disambiguate them.
 % Extract and format patent XML data
-\
+This section will first introduces the background of all the techniques and objects that we use and study in
+this work. Later on we discuss about the related work studying the United States patents.
 \subsection{Background}
-
+The object we study in this paper is US patent dataset, and the techniques we use in this work typically include
+shortest path algorithms and eigen vector centrality.
 \subsubsection{US Patent Dataset}%  
 United States patent dataset has become widely
 accessible to researchers and public since the early 1990. The rich
@@ -25,9 +27,6 @@ technological area, the inventors, the assignee,  terms of fields, types of
 inventors, citation to another patents, etc. The dataset is also a good
 source  for investigating the ground-breaking inventions as well as the trends in 
 innovation over a particular period of time.
-
-
-
  
 \subsubsection{Shortest Path Problem} 
 %
@@ -72,47 +71,47 @@ any $v$.
 		number of vertices and edges respectively.
 	\end{itemize}
 
-\paragraph{Shortest path between any pair of vertices.}
-The problem of shortest path between any pair of vertices can be easily solved
-by running $|V|$ times the above problem of shortest path from a given vertex.
-The best complexity of such approach is by using Dijkstra algorithm with min-
-priority queue ($O(|V|\cdot|E|+|V|^2\log|V|)$). We will discuss the other
-alternatives to address the problem in this section.
-	\begin{itemize}	
-	\squish
-		\item {\bf Floyd-Warshall algorithm} runs in $O(|V|^3)$. The pseudo-code 
-		is illustrated in Algorithm~\ref{alg:floyd-war}. The key idea is
-		to improve the estimated distance between $u$ and $v$ by visiting all
-		the nodes and see if the node is in the shortest path between $u$ and
-		$v$.
+% \paragraph{Shortest path between any pair of vertices.}
+% The problem of shortest path between any pair of vertices can be easily solved
+% by running $|V|$ times the above problem of shortest path from a given vertex.
+% The best complexity of such approach is by using Dijkstra algorithm with min-
+% priority queue ($O(|V|\cdot|E|+|V|^2\log|V|)$). We will discuss the other
+% alternatives to address the problem in this section.
+% 	\begin{itemize}	
+% 	\squish
+% 		\item {\bf Floyd-Warshall algorithm} runs in $O(|V|^3)$. The pseudo-code 
+% 		is illustrated in Algorithm~\ref{alg:floyd-war}. The key idea is
+% 		to improve the estimated distance between $u$ and $v$ by visiting all
+% 		the nodes and see if the node is in the shortest path between $u$ and
+% 		$v$.
 
-	 	\item {\bf Johnson algorithm} is more efficient than Floyd-Warshall
-	 	algorithm when the graph is sparse ($|E| \ll |V|^2$). The algorithm
-	 	runs in $O(|V|^2\log|V| + |V||E|)$ time. Interested readers can refer for
-	 	more details to~\cite{johnson-alg}.
-	\end{itemize}
+% 	 	\item {\bf Johnson algorithm} is more efficient than Floyd-Warshall
+% 	 	algorithm when the graph is sparse ($|E| \ll |V|^2$). The algorithm
+% 	 	runs in $O(|V|^2\log|V| + |V||E|)$ time. Interested readers can refer for
+% 	 	more details to~\cite{johnson-alg}.
+% 	\end{itemize}
 
-\begin{algorithm}
-	\begin{algorithmic}[1]		
-		\ForAll{$v \in V$} 
-		   \State $dist[v][v] \gets 0$	\Comment{$dist$ is a $|V| \times |V|$ array of minimum distances initialized to infinity}
-		\EndFor
-		\ForAll{edge $(u,v) \in E$}
-		   \State $dist[u][v] \gets w(u,v)$  \Comment{the weight of the edge $(u,v)$}
-		\EndFor
-		\ForAll{$1 \leq k \leq |V|$}
-		    \ForAll{$1 \leq i \leq |V|$}
-		      \ForAll{$1 \leq j \leq |V|$}
-		         \If {$dist[i][j] > dist[i][k] + dist[k][j]$} 
-		            \State $dist[i][j]\gets  dist[i][k] + dist[k][j]$
-		        \EndIf
-		      \EndFor
-		    \EndFor
-		\EndFor
-	\end{algorithmic}
-\caption{Floyd-Warshall algorithm, cited from~\cite{floyd-war-wiki}}
-\label{alg:floyd-war}
-\end{algorithm}
+% \begin{algorithm}
+% 	\begin{algorithmic}[1]		
+% 		\ForAll{$v \in V$} 
+% 		   \State $dist[v][v] \gets 0$	\Comment{$dist$ is a $|V| \times |V|$ array of minimum distances initialized to infinity}
+% 		\EndFor
+% 		\ForAll{edge $(u,v) \in E$}
+% 		   \State $dist[u][v] \gets w(u,v)$  \Comment{the weight of the edge $(u,v)$}
+% 		\EndFor
+% 		\ForAll{$1 \leq k \leq |V|$}
+% 		    \ForAll{$1 \leq i \leq |V|$}
+% 		      \ForAll{$1 \leq j \leq |V|$}
+% 		         \If {$dist[i][j] > dist[i][k] + dist[k][j]$} 
+% 		            \State $dist[i][j]\gets  dist[i][k] + dist[k][j]$
+% 		        \EndIf
+% 		      \EndFor
+% 		    \EndFor
+% 		\EndFor
+% 	\end{algorithmic}
+% \caption{Floyd-Warshall algorithm, cited from~\cite{floyd-war-wiki}}
+% \label{alg:floyd-war}
+% \end{algorithm}
 
 \subsubsection{Eigenvector centrality}
 %

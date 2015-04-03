@@ -80,8 +80,7 @@ priority queue ($O(|V|\cdot|E|+|V|^2\log|V|)$). We will discuss the other
 alternatives to address the problem in this section.
 	\begin{itemize}	
 	\squish
-		\item {\bf Floyd-Warshall algorithm} runs in $O(|V|^3)$. The pseudo-code 
-		is illustrated in Algorithm~\ref{alg:floyd-war}. The key idea is
+		\item {\bf Floyd-Warshall algorithm} runs in $O(|V|^3)$. The key idea is
 		to improve the estimated distance between $u$ and $v$ by visiting all
 		the nodes and see if the node is in the shortest path between $u$ and
 		$v$.
@@ -92,27 +91,27 @@ alternatives to address the problem in this section.
 	 	more details to~\cite{johnson-alg}.
 	\end{itemize}
 
-\begin{algorithm}
-	\begin{algorithmic}[1]		
-		\ForAll{$v \in V$} 
-		   \State $dist[v][v] \gets 0$	\Comment{$dist$ is a $|V| \times |V|$ array of minimum distances initialized to infinity}
-		\EndFor
-		\ForAll{edge $(u,v) \in E$}
-		   \State $dist[u][v] \gets w(u,v)$  \Comment{the weight of the edge $(u,v)$}
-		\EndFor
-		\ForAll{$1 \leq k \leq |V|$}
-		    \ForAll{$1 \leq i \leq |V|$}
-		      \ForAll{$1 \leq j \leq |V|$}
-		         \If {$dist[i][j] > dist[i][k] + dist[k][j]$} 
-		            \State $dist[i][j]\gets  dist[i][k] + dist[k][j]$
-		        \EndIf
-		      \EndFor
-		    \EndFor
-		\EndFor
-	\end{algorithmic}
-\caption{Floyd-Warshall algorithm, cited from~\cite{floyd-war-wiki}}
-\label{alg:floyd-war}
-\end{algorithm}
+% \begin{algorithm}
+% 	\begin{algorithmic}[1]		
+% 		\ForAll{$v \in V$} 
+% 		   \State $dist[v][v] \gets 0$	\Comment{$dist$ is a $|V| \times |V|$ array of minimum distances initialized to infinity}
+% 		\EndFor
+% 		\ForAll{edge $(u,v) \in E$}
+% 		   \State $dist[u][v] \gets w(u,v)$  \Comment{the weight of the edge $(u,v)$}
+% 		\EndFor
+% 		\ForAll{$1 \leq k \leq |V|$}
+% 		    \ForAll{$1 \leq i \leq |V|$}
+% 		      \ForAll{$1 \leq j \leq |V|$}
+% 		         \If {$dist[i][j] > dist[i][k] + dist[k][j]$} 
+% 		            \State $dist[i][j]\gets  dist[i][k] + dist[k][j]$
+% 		        \EndIf
+% 		      \EndFor
+% 		    \EndFor
+% 		\EndFor
+% 	\end{algorithmic}
+% \caption{Floyd-Warshall algorithm, cited from~\cite{floyd-war-wiki}}
+% \label{alg:floyd-war}
+% \end{algorithm}
 
 \subsubsection{Eigenvector centrality}
 %

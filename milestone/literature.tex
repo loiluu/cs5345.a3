@@ -71,6 +71,7 @@ any $v$.
 		number of vertices and edges respectively.
 	\end{itemize}
 
+<<<<<<< HEAD
 % \paragraph{Shortest path between any pair of vertices.}
 % The problem of shortest path between any pair of vertices can be easily solved
 % by running $|V|$ times the above problem of shortest path from a given vertex.
@@ -90,6 +91,26 @@ any $v$.
 % 	 	runs in $O(|V|^2\log|V| + |V||E|)$ time. Interested readers can refer for
 % 	 	more details to~\cite{johnson-alg}.
 % 	\end{itemize}
+=======
+\paragraph{Shortest path between any pair of vertices.}
+The problem of shortest path between any pair of vertices can be easily solved
+by running $|V|$ times the above problem of shortest path from a given vertex.
+The best complexity of such approach is by using Dijkstra algorithm with min-
+priority queue ($O(|V|\cdot|E|+|V|^2\log|V|)$). We will discuss the other
+alternatives to address the problem in this section.
+	\begin{itemize}	
+	\squish
+		\item {\bf Floyd-Warshall algorithm} runs in $O(|V|^3)$. The key idea is
+		to improve the estimated distance between $u$ and $v$ by visiting all
+		the nodes and see if the node is in the shortest path between $u$ and
+		$v$.
+
+	 	\item {\bf Johnson algorithm} is more efficient than Floyd-Warshall
+	 	algorithm when the graph is sparse ($|E| \ll |V|^2$). The algorithm
+	 	runs in $O(|V|^2\log|V| + |V||E|)$ time. Interested readers can refer for
+	 	more details to~\cite{johnson-alg}.
+	\end{itemize}
+>>>>>>> e69fd4fdbe29aa778d7b3476bcb8c9280f344b08
 
 % \begin{algorithm}
 % 	\begin{algorithmic}[1]		

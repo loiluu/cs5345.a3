@@ -5,35 +5,29 @@
 
 %discuss why we swapped 2 and 3
 	\begin{itemize}
-		\item {\em Data Processing:} Extract data from XML to CSV / GraphML format.
 
-		\item {\em Inventor Disambiguation:} Run a simple pre-processing algorithm to
-		generate a list of unique inventors.  This is crucial to decide on whether
-		two inventors with similar names are the same person or not. item {\em
-		Collaborative distance:} Calculate the shortest path of each inventor w.r.t
-		to the inventor with maximum eigenvalue centrality in the whole graph. As a
-		sub-activity, we plan to use three algorithms viz. Djikstra, Bellman-Ford,
-		Johnson from IGraph to compare their performance.
+		\item {\em Data Processing:} We extract the data from raw XML to SQL and GraphML format for years 2005 to 2013, for the rest of the data, we relied on the already available processed data from Harvard.
 
-		\item {\em Evaluation Phase I - Collaborative Distance:} Computed the
-		distribution  of the collaborative distance w.r.t. Thomas Edison. Tested three
-		shortest-path algorithms and analyzes their scalability with respect to the
-		nature of the patent network graph.  Also checked if the overall network
-		follows power law.
+		\item {\em Inventor Disambiguation:} We used the previously proposed pre-processing and disambiguation algorithm to
+		generate a list of unique inventors.  
+
+		\item {\em Evaluation Phase I - Collaborative Distance:} We calculated the shortest path of each inventor w.r.t
+		to Thomas Edison. We used three algorithms viz. Djikstra, Bellman-Ford,	Johnson from IGraph to do this.
+		We also analyzed their scalability with respect to the invention network graph and compared their performance.
+
+		\item {\em Social Network Behavior:} Computed the distribution of the collaborative distance w.r.t. Thomas Edison for our network, and also studied if the overall network follows power law for various popularity measures.
 	\end{itemize}
 
 \subsection{Plan}
 
 	\begin{itemize}
 	%\squish
-		\item {\em Organization / Assignee Disambiguation:} Run a simple pre-processing
-		algorithm for disambiguating organization names. For example, IBM Corp. vs.
-		International Business Machines Corporation are considered different
-		organizations.
+		\item {\em Organization / Assignee Disambiguation:} For the next phase of evaluation, we will run a simple pre-processing
+		algorithm for disambiguating organization names. For example, IBM Corp. vs. International Business Machines Corporation are considered different organizations currently. We will use a similar algorithm as for inventor disambiguation, to merge multiple assignees with such names into a single entity.
 
 		\item {\em Evaluation Phase II - Eigenvalue centrality:} Use the Newman's leading eigenvector
 		algorithm in IGraph to calculate eigenvalue centrality for each unique
-		inventor with respect to patents that cite his / her patent.
+		inventor with respect to patents that cite his / her patent. In this case, we do not need data before 1975, since all the patents after 1975 will be cited only by patents after 1975 (for e.g., a patent granted in 2007 will be cited only in future i.e., from 2007 onwards.), thus we do not miss any citation data.  
 
 		\item {\em Data analysis and comparison:} Plot the graphs for the above
 		generated data and analyze the relationship between the above two

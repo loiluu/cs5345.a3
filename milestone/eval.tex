@@ -1,7 +1,7 @@
 \section{Implementation and Evaluation}
 We describe in detail our implementation method and evaluation procedure for answering 
-our goals using the patent dataset. The configuration of our experimental desktop machine is RAM $32$ GB, processor $XX.X$ GHz Intel i7 
-and platform is Ubuntu $14.04$.
+our goals using the patent dataset. The configuration of our experimental desktop machine is RAM $16$ GB, 12 core with processor speed of
+ $2.8$ GHz Intel i7 and platform is Ubuntu $14.04$.
 
 \subsection{Analysis Methodology}
 
@@ -22,13 +22,12 @@ and the average distance between the source node and all other nodes .
 as he is one of the top and popular inventors in the patent dataset with maximum number of patents.
 We calculate the shortest path of all other nodes from Thomas Edison. 
 We run three algorithms particularly Djikstra shortest path algorithm, Bellman-ford and Johnson 
-available in IGraph tool on our Graph G1. We observe that the average distance is $xx$ in our graph
-from the source node.
+available in IGraph tool on our Graph G1. 
 
 \subsection{Results}
 Table~\ref{tab:algos} shows the execution time for each of the three shortest path algorithms 
-when run on our graph G1. We observe that Djikstra's algorithm takes $xx$ seconds, Bellman-ford takes
-$xx$ seconds and Johnson algorithm takes $xx$ seconds to run on our experimental setup.
+when run on our graph G1. We observe that Djikstra's algorithm takes $1.28$ seconds, Bellman-ford takes
+$0.80$ seconds and Johnson algorithm takes $1.29$ seconds to run on our experimental setup.
 Figure~\ref{fig:distance} shows the result for the total number of inventors having the same
 distance from Edison. This graph follows a normal distribution. Figure~\ref{fig:patent} shows the log-log graph of the total no.of patents
 to total no.of inventors. We wil analyse whether this graph follows the power law distribution in our 
@@ -39,37 +38,37 @@ the no. of patents for an inventor. This graph also follows a normal distributio
 
 \begin{table*}[h] 
   %\centering
+	\scriptsize
   \begin{tabular}{@{}c@{}} 
   \begin{minipage}{0.4\linewidth}
 		\begin{center}
 	  		\begin{tabular}{| l | l |}
 				\hline
+				
 				{Type} & {Count} \\
 				\hline
 				\hline
-				Inventors (Nodes) & 0.96 \\
-				Co-authorships (Edges) & 1.29 \\
-				Patents & 123123 \\
+				Inventors (Nodes) & 1222689 \\
+				Co-authorships (Edges) & 3431064 \\
 				Source Node & Thomas Edison\\
-				Avg. Distance & 1.33 \\
 				\hline
 			\end{tabular}		
-			\caption {Details of the co-authorship graph}
+			\caption {\scriptsize Details of the co-authorship graph}
 			\label{tab:model}
 
 			\vspace{0.85cm}
 
 			\begin{tabular}{| l | l |}
 				\hline
-				{Algorithm} & {Time} \\
+				{Algorithm} & {Time (sec)} \\
 				\hline
 				\hline
-				Algo I & 0.96 \\
-				Algo II & 1.29 \\
-				Algo III & 1.33 \\
+				Bellman-Ford & 0.80 \\
+				Dijkstra & 1.28 \\
+				Johnson & 1.29 \\
 				\hline
 			\end{tabular}
-			\caption {Performance of the three shortest path algorithms}
+			\caption {\scriptsize Performance of the three shortest path algorithms}
 			\label{tab:algos}
 		\end{center}
 
@@ -78,7 +77,7 @@ the no. of patents for an inventor. This graph also follows a normal distributio
   \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/distance.pdf}
-          \caption{Graph shows the frequency of nodes on Y-axis and the distance from
+          \caption{\scriptsize Graph shows the frequency of nodes on Y-axis and the distance from
 		Edison on X-axis }
 	  \label{fig:distance}
       \end{figure}
@@ -94,14 +93,14 @@ the no. of patents for an inventor. This graph also follows a normal distributio
    \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/patent.pdf}
-          \caption{Log-log scale graph of no. of patents on Y-axis and the no.of inventors on X-axis}
+          \caption{\scriptsize Log-log scale graph of no. of patents on Y-axis and the no.of inventors on X-axis}
 	  \label{fig:patent}	
       \end{figure}
   \end{minipage}
   \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/distance_patent.pdf}
-          \caption{Relationship graph of no. of patents of an inventor and his distance from Edison}
+          \caption{\scriptsize Relationship graph of no. of patents of an inventor and his distance from Edison}
 	  \label{fig:distance_patent}
       \end{figure}
   \end{minipage}

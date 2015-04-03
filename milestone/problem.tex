@@ -1,40 +1,40 @@
 \section{Problem Description}
-
+\label{sec:prob}
 %\subsection{Motivation}
 
-A variety of surveys, reports, and yearly analysis efforts try to ranking
-organizations  based on their innovation. The underlying reason is to measure
+A variety of surveys, reports, and yearly analysis efforts to rank
+organizations  based on their innovation. The underlying motive is to measure
 which companies and / or products are influencing the market the most.  These
 studies consider factors such as the monthly sales, returns, innovation
 premiums, royalty earned, the global impact of the innovation, etc. Although,
-its crucial to  consider the impact of innovation for ranking the
-organizations, the metric for such measurement  varies largely across all
+its crucial to consider the impact of innovation for ranking the
+organizations, the metric for such measurement  varies largely across all these 
 studies. The consequence is that there is a significant dissonance in the
 rankings of all the surveys.  This motivates the need for a standard technique
 to compare the innovations on fair grounds and in a holistic way. 
 
-To this end, in this work we argue that patents as one of the main factors for
+To this end, in this work we argue that patents are one of the main factors for
 measuring innovation of an organization and / or an individual. It is true
 that patents alone are an insufficient measure to compare the overall
 innovation since research papers, consumer products, services are also a major
 way of displaying innovation. However, such a measure can be considered as one
-of the factors for weighted rankings. Thus, given the patent history of
+of the factors for weighted rankings. Thus, the question is -- given the patent history of
 various organizations for past about four decades,  how should one go about in
-using this information to measure innovation --- quantifying an abstract
-concept such as innovation is not straightforward as it may seem.  
+using this information to measure innovation? Quantifying an abstract
+concept such as innovation may not be intuitive and straightforward as it may seem.  
 
 \subsection{Objectives}
 
-To address this open challenge, we narrow down our efforts towards tackling
+To address this challenge, we narrow down our efforts towards tackling
 three main  aspects of innovation. Firstly, should the metric purely consider
 the quantity of patents filed per unit time (for e.g., month, year, or a
 decade) or should it be based on the quality of an invention (for e.g., a
 groundbreaking invention such as RSA cryptosystem vs. a insignificant patent
 of shapes of chocolates)? Secondly, having a handful of prolific inventors in
 an organization may be sufficient to churn patents rapidly, but does it mean
-that the organization as a whole id innovative? Lastly, how is the dynamics
+that the organization as a whole is innovative? Lastly, how is the dynamics
 between co-inventors, do they tend to collaborate more often with other
-impactful inventors, does their involvement affect the patent grant in any
+impactful inventors, does their involvement affect the frequency and quality of patent grant in any
 way? This helps to throw light on the evolution of innovation within an
 organization, thus giving insights about the future prospects of innovation
 for a given organization.
@@ -42,7 +42,7 @@ for a given organization.
 For a systematic study of the above factors, we confine our problem to
 answering the following research questions:
 
-\paragraph{Question 1.} Is a inventor more impactful because he is closely
+\paragraph{Question 1.} Is an inventor more impactful because he is closely
 connected to other impactful inventors in the patent social network? 
 %(c)(eigen erdos)
 
@@ -64,12 +64,12 @@ recent past? %(b) (eigen org)
 		date. Specifically, we study patents granted from year 1975 to 2013. There are
 		two main reasons for selecting this time frame: (a) Patent data set before
 		1975 is only available in OCR format, which is difficult to parse, and
-		increases the efforts for preprocessing. (b) The disambiguation algorithm
-		requires training models, which are available from previous research. However,
+		increases the efforts for preprocessing. (b) The disambiguation algorithm~\cite{disambiguation} 
+		requires training models and custom parameters, which are available from previous research. However,
 		the models and parameters are available only till year 2013, when the study
 		was conducted. To maintain the precision in disambiguation and avoid re-
-		running the classification on the whole database again, we limit our study to
-		patent till 2013.
+		running the classification on the whole database, we limit our study to
+		patents granted till 2013.
 
 		\item We ignore the references to Non-US patents and other sources, since it
 		is difficult to track all such sources. Please refer to
@@ -84,7 +84,7 @@ To summarize, we make the following contributions:
 \begin{itemize} 
 \squish
 \item {\em Study the inventor network.} We study various properties of the inventor network in the US grant patent dataset for past four decades.  
-\item {\em Metrics for measuring innovation.} We device a fair metric to measure the innovativeness of an inventor and corresponding organization. This allows us to rank various organizations based on their innovations. 
+\item {\em Metrics for measuring innovation.} We device a fair metric to measure the innovativeness and impact of an inventor and corresponding organization. This allows us to rank various organizations based on their innovations alone. 
 \item {\em Soundness of metrics.} We verify if our metrics are sound to qualitatively and quantitatively measure the innovation impact of an organization by comparing our ranking results to public lists.
 \end{itemize}
 

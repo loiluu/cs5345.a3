@@ -1,20 +1,20 @@
 \section{Project Progress and Plan}
 \label{sec:changes}
 After a few rounds of discussions and actually working with the dataset and
-the allied tools, we amended our  size of data set and  assumptions. Here, we
+ allied tools, we amended our  size of data set and  assumptions. Here, we
 will also clarify a few aspects of our proposal in more detail.
 
 \paragraph{Challenges and changes to the proposal.}
 
 	\begin{itemize}
 		\squish
-		\item {\em Dataset Size.} After reconsidering the comments on the proposal, and
-		studying the available tools for extracting the patent data, we realized that
+		\item {\em Dataset Size.} After reconsidering the comments on the proposal, 
+		we realized that
 		we can extend our data set to consider patents from 1975 onwards. Further,
 		for precise disambiguation, we only consider patents uptill 2013 (See
 		Section~\ref{sec:assumption} for details.)
-		\item {\em Organization Disambiguation.} Since organizations are the focus of
-		our study, disambiguating the names seems to be crucial, and hence we will
+		\item {\em Organization Disambiguation.} Apart from inventors, organizations are also the focus of
+		our study, disambiguating their names seems to be crucial as well. Hence we will
 		now run a disambiguation step for the organization step before constructing
 		our citation network.
 		\item {\em Citations.} One of the suggestions was to consider previous patents
@@ -38,8 +38,8 @@ evaluation, which is based on the co-author network.
 %discuss why we swapped 2 and 3
 	\begin{itemize}
 		\squish
-		\item {\em Data Processing:} We extract the data from raw XML to SQL and
-		GraphML format for years 2005 to 2013, for the rest of the data, we relied on
+		\item {\em Data Processing:} We extracted the data from raw XML to SQLite and
+		GraphML format for years 2005 to 2013. For the rest of the data, we relied on
 		the already available processed data from Harvard.
 		\item {\em Inventor Disambiguation:} We used the previously proposed pre-
 		processing and disambiguation algorithm to generate a list of unique

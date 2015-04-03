@@ -1,4 +1,4 @@
-\section{Literature Review}
+\section{Background and related work}
 % Introduction to patent:
 % Patent has a lot of information about innovation, represents the inventive progress of social.
 % A good source to study about change and trend in science and technology.
@@ -7,10 +7,11 @@
 % Economic: relating patent counts to industry & Compustat firms
 % Find all distinct inventors and disambiguate them.
 % Extract and format patent XML data
+\
+\subsection{Background}
 
-\subsection{United States Patent Research}
-
-\paragraph{US Patent Dataset.}  United States patent dataset has become widely
+\subsubsection{US Patent Dataset}%  
+United States patent dataset has become widely
 accessible to researchers and public since the early 1990. The rich
 information included in the dataset covers all the patents filed in the US
 in the last four decades. Each patent contains all the information about an
@@ -25,51 +26,10 @@ inventors, citation to another patents, etc. The dataset is also a good
 source  for investigating the ground-breaking inventions as well as the trends in 
 innovation over a particular period of time.
 
-\paragraph{US Patent Research Analysis.} Early research of the US patent data goes
-as back as the 1960s, when many researchers used patent data in economics
-analysis and technology change. For example, in 1966,  Schmookler related 
-industries to patent counts~\cite{Schmookler1966}, or in 1982, Griliches
-addressed the problem of matching patents to Compustat
-firms~\cite{Griliches1982}. The common approach of the early research is that
-the rely heavily on the patent counts to come up with some indicative insight.
-The simple patent count matrix does not allow them to faithfully capture more
-aspects of the information included in each patent and the relation between
-patents~\cite{Griliches1987}.
 
-On other hand, researchers often model the patent dataset as
-an ``inventor network", in which nodes are inventors or patents, while an edge
-represents a citation between patents or a collaboration between two inventors.
-Studying this network reveals multiple relations between inventors,
-organizations, firms, regions, etc. In~\cite{Hall01thenber}, Hall~\etal
-initiated this line of research by pointing out and addressing several issues
-while analyzing citation data. They indicated that, due to the drastic change
-in the rate of patenting, it is quite challenging to study the {\em received}
-citation data for even a small set of patents. The problem is that to collect
-all received citations of a particular patent {\em P} granted in year {\em t},
-one has to visit all patents granted from year {\em t}. Hall~\etal also propose
-two possible approaches to eliminate the problem, we refer the interested
-reader to their paper. Using their proposed approaches, they show the main
-trends in US patenting activity over three decades by different means of
-measurement and across several main technology categories. Many later works
-follow Hall~\etal's direction to study different problems in patent
-analysis~\cite{Leskovec:2005, Hall2000, leskovec2007graph, Acs2002}.
-
-\paragraph{Extracting and formating data in patent.}  A general technical
-problem when doing patent analysis is --- how to extract and format data from
-patent dataset? Typically, the data is available in Extensible Markup
-Language (XML) format. However, since the patent is often objectively prepared
-by individuals, there is no consistent convention in naming, data field,
-etc. throughout the dataset, thus limiting potential statistical and
-analytical analysis. For example, if an inventor files a patent, he can 
-list his name as John Doe, or John D., or even John S. Doe, etc. Researchers when
-processing the data must be aware of these inconsistency and deficiencies to
-generate a precise and comprehensive results. Recent work has addressed this
-problem by building a parser, which takes into account relevant information 
-such as geo-location for disambiguating inventor name and / or organization~\cite{formattingpatentdata,
-disambiguation, Torvik:2009}. 
 
  
-\subsection{Shortest Path Problem} 
+\subsubsection{Shortest Path Problem} 
 %
 Given a graph $G = (V, E)$, we study the problem of finding the shortest path
 between a source node $u \in V$ and a destination node $v \in V$. In normal
@@ -152,7 +112,7 @@ alternatives to address the problem in this section.
 \label{alg:floyd-war}
 \end{algorithm}
 
-\subsection{Eigenvector centrality}
+\subsubsection{Eigenvector centrality}
 %
 It measures the relative centrality of nodes by taking its neighbor nodes into
 account. The scoring system is designed to differentiate between the
@@ -183,3 +143,54 @@ centrality and Katz centrality is that the connecting neighbors are taken into
 account, not the connected nodes. For example, in Eigenvector centrality, all
 nodes $v$ so that $a_{u, v}= 1$ will have affect on $u$'s score, while in
 Pagerank, only nodes $v$ having $a_{v, u} = 1$ will do.
+
+
+\subsection{Related work}
+\paragraph{US Patent Research Analysis.} Early research of the US patent data goes
+as back as the 1960s, when many researchers used patent data in economics
+analysis and technology change. For example, in 1966,  Schmookler related 
+industries to patent counts~\cite{Schmookler1966}, or in 1982, Griliches
+addressed the problem of matching patents to Compustat
+firms~\cite{Griliches1982}. The common approach of the early research is that
+the rely heavily on the patent counts to come up with some indicative insight.
+The simple patent count matrix does not allow them to faithfully capture more
+aspects of the information included in each patent and the relation between
+patents~\cite{Griliches1987}.
+
+On other hand, researchers often model the patent dataset as
+an ``inventor network", in which nodes are inventors or patents, while an edge
+represents a citation between patents or a collaboration between two inventors.
+Studying this network reveals multiple relations between inventors,
+organizations, firms, regions, etc. In~\cite{Hall01thenber}, Hall~\etal
+initiated this line of research by pointing out and addressing several issues
+while analyzing citation data. They indicated that, due to the drastic change
+in the rate of patenting, it is quite challenging to study the {\em received}
+citation data for even a small set of patents. The problem is that to collect
+all received citations of a particular patent {\em P} granted in year {\em t},
+one has to visit all patents granted from year {\em t}. Hall~\etal also propose
+two possible approaches to eliminate the problem, we refer the interested
+reader to their paper. Using their proposed approaches, they show the main
+trends in US patenting activity over three decades by different means of
+measurement and across several main technology categories. Many later works
+follow Hall~\etal's direction to study different problems in patent
+analysis~\cite{Leskovec:2005, Hall2000, leskovec2007graph, Acs2002}. 
+Our work uses this approach of viewing the patent dataset as a network, however we study 
+different questions from previous work. More specifically, we investigate the relationship between the distance of 
+an inventor to the central of the network and his innovative capacity. We also study the impact of organization and how that impact will affect on the innovator of that organization.
+
+\paragraph{Centrality of patent network} A large body of work focuses on the centrality 
+of patent network to evaluate innovation performance and the affect of inventor/organization to the innovation activity~\cite{Kim2013944, aktamov, Lee2010}. Those papers study the centrality of the patent network for a particular field of science to investigate the technology evolution in each field. For example, in~\cite{Lee2010}, the authors calculate the Degree Centrality, Betweenness Centrality, Closeness Centrality and  a distance-based patent citation map of the electrical conducting polymer nanocomposite patents network to reveal the phenomenal or important techniques. In this work, on the other hand, we use the eigenvalue centrality to find the most impactful inventor $A$ and see if the distance from another inventor $B$ to $A$ has some relationship with the impact of $B$. 
+
+\paragraph{Extracting and formating data in patent.}  A general technical
+problem when doing patent analysis is --- how to extract and format data from
+patent dataset? Typically, the data is available in Extensible Markup
+Language (XML) format. However, since the patent is often objectively prepared
+by individuals, there is no consistent convention in naming, data field,
+etc. throughout the dataset, thus limiting potential statistical and
+analytical analysis. For example, if an inventor files a patent, he can 
+list his name as John Doe, or John D., or even John S. Doe, etc. Researchers when
+processing the data must be aware of these inconsistency and deficiencies to
+generate a precise and comprehensive results. Recent work has addressed this
+problem by building a parser, which takes into account relevant information 
+such as geo-location for disambiguating inventor name and / or organization~\cite{formattingpatentdata,
+disambiguation, Torvik:2009}. 

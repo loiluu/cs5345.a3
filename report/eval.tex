@@ -2,7 +2,6 @@
 \label{sec:eval}
 
 
-
 \begin{table*}[t]
 \centering
 \begin{tabular}{clcl}
@@ -33,14 +32,14 @@
 		{Type} & {Count or Details} \\
 		\hline
 		\hline
-		G1 Nodes & 1222689 \\
-		G1 Edges & 3431064 \\
-		G2 Nodes & 1222689 \\
-		G2 Edges & 3431064 \\
+		G1 Nodes & $3421276$ \\
+		G1 Edges & $13153732$ \\
+		G2 Nodes & $10842560$ \\
+		G2 Edges & $53527305$ \\
 		G1 Source Node & Kia Silverbrook \\
-		Infinite dist. within Org & 6217\\
-		Infinite dist. outside Org& 1817586 \\
-		Patents with zero citations & 1349956 \\
+		Infinite dist. within Org & $6217$\\
+		Infinite dist. outside Org& $1817586$ \\
+		Patents with zero citations & $1349956$ \\
 		\hline
 	\end{tabular}		
 	\caption { Details of the co-authorship graph}
@@ -55,9 +54,9 @@
 		{Algorithm} & {Time (sec)} \\
 		\hline
 		\hline
-		Bellman-Ford & 0.80 \\
-		Dijkstra & 1.28 \\
-		Johnson & 1.29 \\
+		Bellman-Ford & $0.80$ \\
+		Dijkstra & $1.28$ \\
+		Johnson & $1.29$ \\
 		\hline
 	\end{tabular}
 	\caption { Performance of the three shortest path algorithms}
@@ -114,9 +113,8 @@ answering  our goals using the patent dataset.
 		patents. We calculate the shortest path of all other nodes from Kia Silverbrook.
 		We run three algorithms particularly Djikstra shortest path algorithm,
 		Bellman-ford and Johnson available in IGraph tool on our Graph G1.
-		\item The configuration of our experimental desktop machine is RAM $16$ GB, 12
-		core with processor speed of $2.8$ GHz Intel i7 and platform is Ubuntu
-		$14.04$.
+		\item The configuration of our experimental desktop machine is RAM $32$ GB, $12$
+		core with processor speed of $2.6$ GHz Intel® Xeon(R) CPU E5-2630 v2 and platform is Ubuntu $14.04$.
 	\end{itemize}
 
 \subsection{Evaluation Steps}
@@ -156,7 +154,7 @@ We divide each inventor into either same
 or different organization. An inventor belongs to 
  same organization category if he has patent with any of the organizations that are 
 assignees for Kia Silverbrook's patents. All other inventors fall in the different
-organization category. With this division, we plot a graph as shown in Figure~\ref{same_diff}.
+organization category. With this division, we plot a graph as shown in Figure~\ref{fig:same_diff}.
 From the graph, we observe that inventors from same organization have
 smaller collaborative distance which is expected. However, interesting observation is that
 even many inventors from different organizations have smaller collaborative distance to Kia Silverbrook. 

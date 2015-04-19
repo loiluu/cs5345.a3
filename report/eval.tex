@@ -55,7 +55,7 @@ Kia Silverbrook on X-axis }
 \begin{figure}
   \includegraphics[scale=0.425]{figure/same_diff_org.pdf}
   \caption{\scriptsize Relationship graph of organisation of an inventor and his distance from Kia Silverbrook}
-\label{fig:distance_patent}
+\label{fig:same_diff}
 \end{figure}
 
 We describe in detail our implementation method and evaluation procedure for
@@ -101,23 +101,9 @@ answering  our goals using the patent dataset.
 		metric coincides with the results of other metrics.
 	\end{itemize}
 
-\subsection{Results}
-Table~\ref{tab:algos} shows the execution time for each of the three shortest
-path algorithms  when run on our graph G1. We observe that Djikstra's
-algorithm takes $1.28$ seconds, Bellman-ford takes $0.80$ seconds and Johnson
-algorithm takes $1.29$ seconds to run on our experimental setup.
-Figure~\ref{fig:distance} shows the result for the total number of inventors
-having the same distance from Kia Silverbrook. This graph follows a normal
-distribution. Figure~\ref{fig:patent} shows the log-log graph of the total
-no.of patents to total no.of inventors. We wil analyse whether this graph
-follows the power law distribution in our  final analysis step.
-Figure~\ref{fig:distance_patent} shows the relation of the distance from
-Kia Silverbrook and the no. of patents for an inventor. This graph also follows a
-normal distribution.
 
 
-
-\begin{table*}[h]
+\begin{table*}[t]
 \centering
 \begin{tabular}{clcl}
 \hline
@@ -143,6 +129,34 @@ normal distribution.
 \caption{List of top 20 innovators for year 2013 as calculated by our proposed metrics.}
 \label{lst:top20}
 \end{table*}
+
+\subsection{Results}
+Table~\ref{tab:algos} shows the execution time for each of the three shortest
+path algorithms  when run on our graph G1. We observe that Djikstra's
+algorithm takes $1.28$ seconds, Bellman-ford takes $0.80$ seconds and Johnson
+algorithm takes $1.29$ seconds to run on our experimental setup.
+Figure~\ref{fig:distance} shows the result for the total number of inventors
+having the same distance from Kia Silverbrook. This graph follows a normal
+distribution. Figure~\ref{fig:patent} shows the log-log graph of the total
+no.of patents to total no.of inventors. 
+
+
+\paragraph{Question 1.}
+Figure~\ref{fig:distance_patent} shows the relation of the distance from
+Kia Silverbrook and the no. of patents for an inventor. This graph also follows a
+normal distribution.
+
+\paragraph{Question 2.}
+To answer question Q2, we divide each inventor into either
+or different organization. An inventor belongs to 
+ same organization category if he has patent with any of the organizations that are 
+assignees for Kia Silverbrook's patents. All other inventors fall in the different
+organization category. With this division, we plot a graph as shown in Figure~\ref{same_diff}.
+From the graph, we observe that inventors from same organization have
+smaller collaborative distance which is expected. However, interesting observation is that
+even many inventors from different organizations have smaller collaborative distance to Kia Silverbrook. 
+
+\paragraph{Question 3.}
 
 
 \subsection{Validation}

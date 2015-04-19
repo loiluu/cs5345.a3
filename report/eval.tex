@@ -1,12 +1,8 @@
 \section{Implementation \& Evaluation}
 \label{sec:eval}
 
-We describe in detail our implementation method and evaluation procedure for
-answering  our goals using the patent dataset. The configuration of our
-experimental desktop machine is RAM $16$ GB, 12 core with processor speed of
-$2.8$ GHz Intel i7 and platform is Ubuntu $14.04$.
 
-\begin{table*}[H] 
+\begin{table*}[t] 
   %\centering
 	\scriptsize
   \begin{tabular}{@{}c@{}} 
@@ -77,27 +73,27 @@ $2.8$ GHz Intel i7 and platform is Ubuntu $14.04$.
   \end{tabular}
 \end{table*}
 
-\subsection{Analysis Methodology}
+We describe in detail our implementation method and evaluation procedure for
+answering  our goals using the patent dataset. 
 
-\begin{itemize}
-\squish
-\item Gephi and / or IGraph: Graph analysis and metric calculation~\cite{gephi, igraph}.
+\subsection{Analysis Tools and Platform}
 
-\item GraphViz, Gnuplot: Data visualization and result plotting~\cite{graphviz, gnuplot}.
 
-\item Standard libraries and custom Python Scripts: For data extraction~\cite{python}.
-\end{itemize}
-
-\subsection{Graph Details}
-Table~\ref{tab:model} gives the details about Graph G1 in terms of its total
-number of nodes , edges , patents, the source node  of the graph and the
-average distance between the source node and all other nodes .    We choose
-Thomas Edison as our source node as he is one of the top and popular inventors
-in the patent dataset with maximum number of patents. We calculate the
-shortest path of all other nodes from Thomas Edison.  We run three algorithms
-particularly Djikstra shortest path algorithm, Bellman-ford and Johnson
-available in IGraph tool on our Graph G1.
-
+	\begin{itemize}
+		\squish
+		\item We use IGraph for all our graph analysis and metric
+		calculation~\cite{gephi, igraph}. Table~\ref{tab:model} gives the details
+		about Graph G1 in terms of its total number of nodes , edges , patents, the
+		source node  of the graph and the average distance between the source node and
+		all other nodes .    We choose Thomas Edison as our source node as he is one
+		of the top and popular inventors in the patent dataset with maximum number of
+		patents. We calculate the shortest path of all other nodes from Thomas Edison.
+		We run three algorithms particularly Djikstra shortest path algorithm,
+		Bellman-ford and Johnson available in IGraph tool on our Graph G1.
+		\item The configuration of our experimental desktop machine is RAM $16$ GB, 12
+		core with processor speed of $2.8$ GHz Intel i7 and platform is Ubuntu
+		$14.04$.
+	\end{itemize}
 
 \subsection{Evaluation Steps}
 	\begin{itemize}
@@ -110,10 +106,9 @@ available in IGraph tool on our Graph G1.
 		\item {\em Social Network Behavior:} Computed the distribution of the 
 		collaborative distance w.r.t. Thomas Edison for our network, and also studied
 		if the overall network follows power law for various popularity measures.
-		\item {\em Evaluation Phase II - Eigenvalue centrality:} Use the Newman's
-		leading eigenvector algorithm in IGraph to calculate eigenvalue centrality
-		for each unique inventor with respect to patents that cite his / her patent.
-		% ~\footnote{We skipped this activity for now, because it relies on the citation graph. Instead we did the next activity which uses the co-inventorship graph that we generated in this milestone.}.
+		\item {\em Evaluation Phase II - Degree centrality:} Use the in-built
+		algorithm in IGraph to calculate degree centrality
+		for each unique inventor and organization with respect to patents that cite his / her patent.
 		\item {\em Data analysis and comparison:} Plot the graphs for the above
 		generated data and analyze the relationship between the above two
 		measurements. Compare our ranking results for the most innovative organization
@@ -144,5 +139,3 @@ normal distribution.
 % https://www.bcgperspectives.com/most_innovative_companies
 % http://top100innovators.com/
 % http://www.brw.com.au/lists/50-most-innovative-companies/2014/
-
-

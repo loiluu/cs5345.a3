@@ -1,0 +1,106 @@
+\section{Project Progress and Plan}
+\label{sec:changes}
+After a few rounds of discussions and actually working with the dataset and
+ allied tools, we amended our  size of data set and  assumptions. Here, we
+will also clarify a few aspects of our proposal in more detail.
+
+\paragraph{Challenges and changes to the proposal.}
+
+	\begin{itemize}
+		\squish
+		\item {\em Dataset Size.} After reconsidering the comments on the proposal, 
+		we realized that
+		we can extend our data set to consider patents from 1975 onwards. Further,
+		for precise disambiguation, we only consider patents uptill 2013 (See
+		Section~\ref{sec:assumption} for details.)
+		\item {\em Organization Disambiguation.} Apart from inventors, organizations are also the focus of
+		our study, disambiguating their names seems to be crucial as well. Hence we will
+		now run a disambiguation step for the organization step before constructing
+		our citation network.
+		\item {\em Citations.} One of the suggestions was to consider previous patents
+		only for citation information. However, we are only concerned about `Who
+		cited this patent?', to decide if it is impactful. In this case, we do not
+		need data before 1975, since all the patents after 1975 will be cited only by
+		patents after 1975 (for e.g., a patent granted in 2007 will be cited only in
+		future i.e., from 2007 onwards.), thus we do not miss any citation data. As
+		for the non-US patents and other sources, it is not trivial to track `Who all
+		cited this patent outside the patent network?', and this we do not consider
+		the non-US and other sources which cite the patents in our dataset.
+
+	\end{itemize}
+
+
+\subsection{Progress}
+\label{sec:progress}
+So far, we have completed the data extraction and first phase of our
+evaluation, which is based on the co-author network. 
+
+%discuss why we swapped 2 and 3
+	\begin{itemize}
+		\squish
+		\item {\em Data Processing:} We extracted the data from raw XML to SQLite and
+		GraphML format for years 2005 to 2013. For the rest of the data, we relied on
+		the already available processed data from Harvard.
+		\item {\em Inventor Disambiguation:} We used the previously proposed pre-
+		processing and disambiguation algorithm to generate a list of unique
+		inventors.
+		\item {\em Evaluation Phase I - Collaborative Distance:} We calculated the 
+		shortest path of each inventor w.r.t to Thomas Edison. We used three
+		algorithms viz. Djikstra, Bellman-Ford, Johnson from IGraph to do this. We
+		also analyzed their scalability with respect to the invention network graph
+		and compared their performance.
+		\item {\em Social Network Behavior:} Computed the distribution of the 
+		collaborative distance w.r.t. Thomas Edison for our network, and also studied
+		if the overall network follows power law for various popularity measures.
+
+	\end{itemize}
+
+\subsection{Plan for next activities}
+ 
+Next goal is the second phase of evaluation for the citation network and the
+final analysis based on all the metric computations.
+
+	\begin{itemize}
+	\squish
+
+		\item {\em Organization / Assignee Disambiguation:} For the next phase of
+		evaluation, we will run a simple pre-processing algorithm for disambiguating
+		organization names. For example, IBM Corp. vs. International Business Machines
+		Corporation are considered different organizations currently. We will use a
+		similar algorithm as for inventor disambiguation, to merge multiple assignees
+		with such names into a single entity.
+		\item {\em Evaluation Phase II - Eigenvalue centrality:} Use the Newman's
+		leading eigenvector algorithm in IGraph to calculate eigenvalue centrality
+		for each unique inventor with respect to patents that cite his / her patent.
+		% ~\footnote{We skipped this activity for now, because it relies on the citation graph. Instead we did the next activity which uses the co-inventorship graph that we generated in this milestone.}.
+		\item {\em Data analysis and comparison:} Plot the graphs for the above
+		generated data and analyze the relationship between the above two
+		measurements. Compare our ranking results for the most innovative organization
+		with publicly available list such as Forbes list, to check if our ranking
+		metric coincides with the results of other metrics.
+		\item{\em Considering time as a factor:} Optionally, we plan to study the evolution 
+		of the citation and the co-authorship network over a period of time, and if forming a 
+		link leads to increase / decrease in our measures. We have retained the time 
+		information in our data so far, but we may not be able to finish this task 
+		completely given the time constraints.
+
+	\end{itemize}
+
+% \begin{table}[H]
+% %\footnotesize
+% \centering
+% \begin{tabular}{| l | l | l |}
+% \hline
+% {Date} & {Activity} & Progress \\
+% \hline
+% \hline
+% 24th March & Data Extraction and Author Disambiguation & \tick \\
+% 31st March & Calculate Eigenvalue centrality for all nodes & - \\
+% 7th April & Calculate shortest path between nodes - Run 3 algorithms & \tick \\
+% 14th April &  Comparison charts and analysis & - \\
+% 17th April & Final Report Submission & - \\
+% \hline
+% \end{tabular}
+% \label{tbl:milestone}
+% % \vspace{-0.5cm}
+% \end{table}

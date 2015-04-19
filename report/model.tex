@@ -1,0 +1,64 @@
+\section{Solution Approach}
+\label{sec:sol}
+With our problem definition narrowed down to three sub-questions, we build a social graph model to address these research questions. 
+After we have the social graph, we select the appropriate network metrics to measure the aspects of innovation.
+With these metrics, we can answer the research questions as well as provide empirical evidence to verify our rankings.
+
+\subsection{Inventor Network Model}
+\label{sec:model}
+Our social graph models two aspects of the inventor network:  `Which inventors
+and organizations have joint patents?' and `How many patents cite a certain
+patent?'. These two networks abstracts out just enough information to address
+our three sub-problems discussed in Section~\ref{sec:prob}. We describe our graph models in detail below:
+
+\paragraph{Graph G1: Co-inventorship Graph}
+
+	\begin{itemize}
+	\squish
+		\item {Vertices:} Inventors  ($I_1$, $I_2$, ...)
+		\item {Edges:} Signify co-inventorship on one / more patents
+	\end{itemize}
+
+There exists an edge between $I_1$ and $I_2$ if these two inventors have a
+joint patent. Since two inventors can have multiple joint patents, the weight
+signifies the number of joint patents
+
+\paragraph{Graph G2: Citation Graph.}
+
+	\begin{itemize}
+	\squish
+		\item {Vertices:} Inventors ($I_1$, $I_2$, ...) or Patents ($P_1$, $P_2$, ...)
+		\item {Edges:} Citations or Inventions
+	\end{itemize}
+
+There exists an `invention' edge between $I_1$ and $P_1$ if $I_1$ is an inventor of $P_1$.
+There exists a directed `citation' edge from $P_1$ to $P_2$ if $P_1$ cites $P_2$.
+
+\subsection{Definitions \& Insights}
+
+	\begin{itemize}
+	\squish
+		\item {\em Collaborative distance.} For any two inventors, we define
+		the collaborative distance as the length of the shortest path in
+		Graph G1.
+		\item {\em Invention impact.} For a given inventor, we define his /
+		her invention impact as the eigenvalue centrality for this inventor
+		in Graph G2.
+	\end{itemize}
+
+% \subsection{Insight}
+
+In our model, the impact of an inventor is measured by the number of patents
+he / she invents (quantity) as well as the number of references for each of
+these patents (quality). Thus, intuitively, the more is the eigenvalue
+centrality measure, the inventor is more `impactful'. Similarly, we use
+collaborative distance to measure the `connectedness' between two inventors.
+Thus, intuitively, the smaller the collaborative distance, the closer they are
+to each other in terms of connection in the graph.  In a nutshell, the answers
+to our questions framed in our problem description follow from these insights:
+
+\paragraph{Answer 1.} Check the correlation between collaborative distance and invention impact. 
+
+\paragraph{Answer 2.} Check the correlation between collaborative distance and organization.
+
+\paragraph{Answer 3.} Check the correlation between invention impact and organization.

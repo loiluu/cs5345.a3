@@ -72,8 +72,16 @@ recent past? %(b) (eigen org)
 		patents granted till 2013.
 
 		\item We ignore the references to Non-US patents and other sources, since it
-		is difficult to track all such sources. Please refer to
-		Section~\ref{sec:changes} for the rationale for this assumption.
+		is difficult to track all such sources. 
+		We are only concerned about `Who
+		cited this patent?', to decide if it is impactful. In this case, we do not
+		need data before 1975, since all the patents after 1975 will be cited only by
+		patents after 1975 (for e.g., a patent granted in 2007 will be cited only in
+		future i.e., from 2007 onwards.), thus we do not miss any citation data. As
+		for the non-US patents and other sources, it is not trivial to track `Who all
+		cited this patent outside the patent network?', and this we do not consider
+		the non-US and other sources which cite the patents in our dataset.
+
 	\end{itemize}
 
 

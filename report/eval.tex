@@ -2,25 +2,102 @@
 \label{sec:eval}
 
 
-\begin{table*}[t]
+We describe in detail our implementation method and evaluation procedure for
+answering  our goals using the patent dataset. 
+
+\subsection{Analysis Tools and Platform}
+
+
+	\begin{itemize}
+		\squish
+		\item We use IGraph for all our graph analysis and metric
+		calculation~\cite{gephi, igraph}. Table~\ref{tab:model} gives the details
+		about Graph G1 in terms of its total number of nodes , edges , patents, the
+		source node  of the graph and the average distance between the source node and
+		all other nodes .    We choose Kia Silverbrook as our source node as he is one
+		of the top and popular inventors in the patent dataset with maximum number of
+		patents. We calculate the shortest path of all other nodes from Kia Silverbrook.
+		We run three algorithms particularly Djikstra shortest path algorithm,
+		Bellman-ford and Johnson available in IGraph tool on our Graph G1.
+		\item The configuration of our experimental desktop machine is RAM $32$ GB, $12$
+		core with processor speed of $2.6$ GHz Intel® Xeon(R) CPU E5-2630 v2 and platform is Ubuntu $14.04$.
+	\end{itemize}
+
+\input{rank}
+
+\subsection{Evaluation Steps}
+	\begin{itemize}
+		\squish
+		\item {\em Evaluation Phase I - Collaborative Distance:} We calculated the 
+		shortest path of each inventor w.r.t to Kia Silverbrook. We used three
+		algorithms viz. Djikstra, Bellman-Ford, Johnson from IGraph to do this. We
+		also analyzed their scalability with respect to the invention network graph
+		and compared their performance.
+		\item {\em Social Network Behavior:} Computed the distribution of the 
+		collaborative distance w.r.t. Kia Silverbrook for our network, and also studied
+		if the overall network follows power law for various popularity measures.
+		\item {\em Evaluation Phase II - Degree centrality:} Use the in-built
+		algorithm in IGraph to calculate degree centrality
+		for each unique inventor and organization with respect to patents that cite his / her patent.
+		\item {\em Data analysis and comparison:} Plot the graphs for the above
+		generated data and analyze the relationship between the above two
+		measurements. Compare our ranking results for the most innovative organization
+		with publicly available list such as Reuters list, to check if our ranking
+		metric coincides with the results of other metrics.
+	\end{itemize}
+
+
+
+\subsection{Results}
+
+\paragraph{Answer 1.}
+We first calculate the total number of citations for each inventor from Graph G2. Using the collaboration distance calculated from G1, we plot a graph of distance (connectedness) vs. total number of citations (invention impact) of each inventor. 
+Figure~\ref{fig:distance_citation} shows the relation of the distance from
+Kia Silverbrook and the no. of total citations for an inventor. This graph gives a positive answers our Question 1: 
+Yes, an inventor is more impactful because he is closely
+connected to other impactful inventors in the patent social network.
+
+\begin{figure}[t]
+  \includegraphics[scale=0.425]{figure/abc.pdf}
+  \caption{ Relationship graph of no. of citations for all patents of an inventor (i.e., the cumulative degree centrality) and his distance from Kia Silverbrook}
+\label{fig:distance_citation}
+\end{figure}
+\begin{figure}[t]
+  \includegraphics[scale=0.425]{figure/same_diff_org.pdf}
+  \caption{ Relationship graph of organisation of an inventor and his distance from Kia Silverbrook}
+\label{fig:same_diff}
+\end{figure}
+
+\paragraph{Answer 2.}
+We divide each inventor into either same 
+or different organization. An inventor belongs to 
+ same organization category if he has patent with any of the organizations that are 
+assignees for Kia Silverbrook's patents. All other inventors fall in the different
+organization category. With this division, 
+we plot a graph as shown in Figure~\ref{fig:same_diff}.
+From the graph, we observe that inventors from same organization have
+smaller collaborative distance which is expected. However, interesting observation is that
+even many inventors from different organizations have smaller collaborative distance to Kia Silverbrook. 
+This answers our Question 2:
+Inventors are not only closely connected to an impactful
+inventor in their own organization but also in other organizations.
+
+
+
+\begin{table}[t]
 \centering
-\begin{tabular}{clcl}
+\begin{tabular}{|l|c|c|}
 \hline
-\multicolumn{1}{|l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization Name}}                  & \multicolumn{1}{l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization}}                     \\ \hline
-\multicolumn{1}{|c|}{1}             & \multicolumn{1}{l|}{International Business Machines Corporation} & \multicolumn{1}{c|}{11}            & \multicolumn{1}{l|}{Hewlett Packard Company}                   \\ \hline
-\multicolumn{1}{|c|}{2}             & \multicolumn{1}{l|}{Hitachi Ltd}                                 & \multicolumn{1}{c|}{12}            & \multicolumn{1}{l|}{Texas Instruments Incorporated}            \\ \hline
-\multicolumn{1}{|c|}{3}             & \multicolumn{1}{l|}{Matsushita Electric Industrial Co Ltd,}      & \multicolumn{1}{c|}{13}            & \multicolumn{1}{l|}{Sony Corporation}                          \\ \hline
-\multicolumn{1}{|c|}{4}             & \multicolumn{1}{l|}{Canon Kabushiki Kaisha,}                     & \multicolumn{1}{c|}{14}            & \multicolumn{1}{l|}{Intel Corporation}                         \\ \hline
-\multicolumn{1}{|c|}{5}             & \multicolumn{1}{l|}{Motorola Inc,}                               & \multicolumn{1}{c|}{15}            & \multicolumn{1}{l|}{Micron Electric Co Ltd}                    \\ \hline
-\multicolumn{1}{|c|}{6}             & \multicolumn{1}{l|}{Toshiba Corporation,}                        & \multicolumn{1}{c|}{16}            & \multicolumn{1}{l|}{Eastman Kodak Company}                     \\ \hline
-\multicolumn{1}{|c|}{7}             & \multicolumn{1}{l|}{General Electric Company,}                   & \multicolumn{1}{c|}{17}            & \multicolumn{1}{l|}{Minnesota Mining \& Manufacturing Company} \\ \hline
-\multicolumn{1}{|c|}{8}             & \multicolumn{1}{l|}{AT\&T Corp,}                                 & \multicolumn{1}{c|}{18}            & \multicolumn{1}{l|}{Microsoft Corporation}                     \\ \hline
-\multicolumn{1}{|c|}{9}             & \multicolumn{1}{l|}{Fujitsu Limited,}                            & \multicolumn{1}{c|}{19}            & \multicolumn{1}{l|}{Samsung Electronics Co Ltd}                \\ \hline
-\multicolumn{1}{|c|}{10}            & \multicolumn{1}{l|}{Xerox Corporation,}                          & \multicolumn{1}{c|}{20}            & \multicolumn{1}{l|}{NEC Corporation}                           \\ \hline                                                               
+\textbf{Organization}        & \multicolumn{1}{l|}{\textbf{24/7 Wall St}} & \multicolumn{1}{l|}{\textbf{SSL 3.0}} \\ \hline
+IBM Corp                     & 1                                          & 1                                         \\ \hline
+Samsung Electronics          & 2                                          & 19                                        \\ \hline
+Canon K K                    & 3                                          & 4                                         \\ \hline
+Sony Corp                    & 4                                          & 13                                        \\ \hline
+Microsoft Corp               & 5                                          & 18                                        \\ \hline
 \end{tabular}
-\caption{List of top 20 innovators for year 2013 as calculated by our proposed metrics.}
-\label{lst:top20}
-\end{table*}
+\caption{Comparison of Rankings by 24/7 Wall St vs. SSL 3.0.}
+\label{tab:validation}
+\end{table}
 
 
 \begin{table}[t]
@@ -61,7 +138,7 @@
 	\end{tabular}
 	\caption { Performance of the three shortest path algorithms}
 	\label{tab:algos}
-\end{table}					
+\end{table}		
 
 \begin{figure}[t]
   \includegraphics[scale=0.425]{figure/silver_brook_distance.pdf}
@@ -81,86 +158,6 @@ Kia Silverbrook on X-axis }
   \caption{Relationship graph of no. of patents of an inventor and his distance from Kia Silverbrook}
 \label{fig:distance_patent}
 \end{figure}
-
-\begin{figure}[t]
-  \includegraphics[scale=0.425]{figure/abc.pdf}
-  \caption{ Relationship graph of no. of citations for all patents of an inventor (i.e., the cumulative degree centrality) and his distance from Kia Silverbrook}
-\label{fig:distance_citation}
-\end{figure}
-
-
-
-\begin{figure}[t]
-  \includegraphics[scale=0.425]{figure/same_diff_org.pdf}
-  \caption{ Relationship graph of organisation of an inventor and his distance from Kia Silverbrook}
-\label{fig:same_diff}
-\end{figure}
-
-We describe in detail our implementation method and evaluation procedure for
-answering  our goals using the patent dataset. 
-
-\subsection{Analysis Tools and Platform}
-
-
-	\begin{itemize}
-		\squish
-		\item We use IGraph for all our graph analysis and metric
-		calculation~\cite{gephi, igraph}. Table~\ref{tab:model} gives the details
-		about Graph G1 in terms of its total number of nodes , edges , patents, the
-		source node  of the graph and the average distance between the source node and
-		all other nodes .    We choose Kia Silverbrook as our source node as he is one
-		of the top and popular inventors in the patent dataset with maximum number of
-		patents. We calculate the shortest path of all other nodes from Kia Silverbrook.
-		We run three algorithms particularly Djikstra shortest path algorithm,
-		Bellman-ford and Johnson available in IGraph tool on our Graph G1.
-		\item The configuration of our experimental desktop machine is RAM $32$ GB, $12$
-		core with processor speed of $2.6$ GHz Intel® Xeon(R) CPU E5-2630 v2 and platform is Ubuntu $14.04$.
-	\end{itemize}
-
-\subsection{Evaluation Steps}
-	\begin{itemize}
-		\squish
-		\item {\em Evaluation Phase I - Collaborative Distance:} We calculated the 
-		shortest path of each inventor w.r.t to Kia Silverbrook. We used three
-		algorithms viz. Djikstra, Bellman-Ford, Johnson from IGraph to do this. We
-		also analyzed their scalability with respect to the invention network graph
-		and compared their performance.
-		\item {\em Social Network Behavior:} Computed the distribution of the 
-		collaborative distance w.r.t. Kia Silverbrook for our network, and also studied
-		if the overall network follows power law for various popularity measures.
-		\item {\em Evaluation Phase II - Degree centrality:} Use the in-built
-		algorithm in IGraph to calculate degree centrality
-		for each unique inventor and organization with respect to patents that cite his / her patent.
-		\item {\em Data analysis and comparison:} Plot the graphs for the above
-		generated data and analyze the relationship between the above two
-		measurements. Compare our ranking results for the most innovative organization
-		with publicly available list such as Reuters list, to check if our ranking
-		metric coincides with the results of other metrics.
-	\end{itemize}
-
-
-
-\subsection{Results}
-
-\paragraph{Answer 1.}
-We first calculate the total number of citations for each inventor from Graph G2. Using the collaboration distance calculated from G1, we plot a graph of distance (connectedness) vs. total number of citations (invention impact) of each inventor. 
-Figure~\ref{fig:distance_citation} shows the relation of the distance from
-Kia Silverbrook and the no. of total citations for an inventor. This graph gives a positive answers our Question 1: 
-Yes, an inventor is more impactful because he is closely
-connected to other impactful inventors in the patent social network.
-
-\paragraph{Answer 2.}
-We divide each inventor into either same 
-or different organization. An inventor belongs to 
- same organization category if he has patent with any of the organizations that are 
-assignees for Kia Silverbrook's patents. All other inventors fall in the different
-organization category. With this division, we plot a graph as shown in Figure~\ref{fig:same_diff}.
-From the graph, we observe that inventors from same organization have
-smaller collaborative distance which is expected. However, interesting observation is that
-even many inventors from different organizations have smaller collaborative distance to Kia Silverbrook. 
-This answers our Question 2:
-Inventors are not only closely connected to an impactful
-inventor in their own organization but also in other organizations.
 
 \paragraph{Answer 3.}
 We calculate the total number of citations for all patents assigned to a particular organization using graph G2. We rank the organizations based on this metric of total number of citations. Table~\ref{tab:top20} shows the top 20 organisations that are leading the innovation industry via impactful inventions in last four decades, as per our metric. 
@@ -191,23 +188,16 @@ top 100 in both Reuters are well as our rankings. On analysis, we find that
 this intersection size is 41\%, which validates that our metric fairly
 succeeds in covering the qualitative aspects of innovation.
 
-\begin{table}[t]
-\centering
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Organization}        & \multicolumn{1}{l|}{\textbf{24/7 Wall St}} & \multicolumn{1}{l|}{\textbf{SSL 3.0}} \\ \hline
-IBM Corp                     & 1                                          & 1                                         \\ \hline
-Samsung Electronics          & 2                                          & 19                                        \\ \hline
-Canon K K                    & 3                                          & 4                                         \\ \hline
-Sony Corp                    & 4                                          & 13                                        \\ \hline
-Microsoft Corp               & 5                                          & 18                                        \\ \hline
-\end{tabular}
-\caption{Comparison of Rankings by 24/7 Wall St vs. SSL 3.0.}
-\label{tab:validation}
-\end{table}
+
+\subsection{Miscellaneous Results}
+\paragraph{Graph Details.}
+\paragraph{Performance Comparison.}
+\paragraph{Collaborative Distance Characteristics.}
+\paragraph{Distribution of Quantitative Innovation Impact.}
 
 
-\paragraph{Miscellaneous Results.}
+% \paragraph{Co-inventorGraph Characteristics.}
+
 Table~\ref{tab:algos} shows the execution time for each of the three shortest
 path algorithms  when run on our graph G1. We observe that Djikstra's
 algorithm takes $1.28$ seconds, Bellman-ford takes $0.80$ seconds and Johnson

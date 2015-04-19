@@ -45,7 +45,7 @@ any $v$.
 		\item {\bf Dijkstra algorithm} works only for a graph with non-negative 
 		edge weights. The general idea of Dijkstra algorithm is to find the
 		nearest unvisited node to $u$, namely $k$, at every iteration. After
-		that, the distances of $k$'s neighbors to $u$ are updated based on
+		that, the distances of $k$'s neighbours to $u$ are updated based on
 		the distance of $k$ to $u$ and $k$ to that node. The time complexity
 		of the algorithm without / with a min-priority queue are $O(|V|^2)$ and
 		$O(|E|+|V|\log|V|)$ respectively (where $|V|$ is the number of nodes,
@@ -63,7 +63,7 @@ any $v$.
 		weight~\footnote{Note that it is not practical to find a shortest path in a
 		graph with a negative circle.}. The algorithm can also detect the negative
 		circle in the graph. The main insight of Bellman-ford algorithm can be
-		explained in the context of dynamic programing. The key
+		explained in the context of dynamic programming. The key
 		observation is that any shortest path from $u$ to $v$ in $G$ will have at most
 		$|V|−1$ edges. Thus, we answer the question by sequentially looking for
 		shortest path between $u$ and $v$ which has at most $1, 2, ..., |V|-1$ edges.
@@ -122,8 +122,8 @@ The total number of vertices adjacent to node is the degree of that
 node. Degree centrality is the simplest and commonly used measure to understand 
 the connection between nodes in graph. In undirected graphs, this
 centrality is useful to decide the highly connected nodes.
-In directed graphs, the total number of indegree of a node indicates the
-popularity of that node and the outdegrees act as a measure of
+In directed graphs, the total number of in-degree of a node indicates the
+popularity of that node and the out-degree acts as a measure of
 generosity or gregarious nature. 
 
 
@@ -163,7 +163,7 @@ an inventor to the central of the network and his innovative capacity. We also s
 \paragraph{Centrality of patent network.} A large body of work focuses on the centrality 
 of patent network to evaluate innovation performance and the affect of inventor/organization to the innovation activity~\cite{Kim2013944, aktamov, Lee2010}. Those papers study the centrality of the patent network for a particular field of science to investigate the technology evolution in each field. For example, in~\cite{Lee2010}, the authors calculate the Degree Centrality, Betweenness Centrality, Closeness Centrality and  a distance-based patent citation map of the electrical conducting polymer nanocomposite patents network to reveal the phenomenal or important techniques. In this work,  we use the degree centrality to find the most impactful inventor $A$ and see if the distance from another inventor $B$ to $A$ has some relationship with the impact of $B$. 
 
-\paragraph{Extracting and formating data in patent.}  A general technical
+\paragraph{Extracting and formatting data in patent.}  A general technical
 problem when doing patent analysis is --- how to extract and format data from
 patent dataset? Typically, the data is available in Extensible Markup
 Language (XML) format. However, since the patent is often objectively prepared

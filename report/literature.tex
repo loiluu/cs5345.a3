@@ -115,37 +115,16 @@ any $v$.
 % \label{alg:floyd-war}
 % \end{algorithm}
 
-\subsubsection{Eigenvector centrality}
+\subsubsection{Degree centrality}
 %
-It measures the relative centrality of nodes by taking its neighbor nodes into
-account. The scoring system is designed to differentiate between the
-connections to a high-scoring node and a low-scoring node, in a sense that
-connecting to the high-scoring node will make the node more central. Given a
-graph $G:=(V,E)$ and let $A = (a_{v,t}\in\{0, 1\})$ be the adjacency matrix,
-the formula to compute the score of a node $v$ is illustrated in
-Equation~\eqref{eq:eigenvector}
-
-\begin{equation}
-	\label{eq:eigenvector}
-	x_v = \frac{1}{\lambda} \sum_{t \in M(v)}x_t = \frac{1}{\lambda} \sum_{t \in G} a_{v,t}x_t
-\end{equation}
-where $M(v)$ is the collection of the neighbors of v and $\lambda$ is a
-constant called eigenvalue~\cite{Eigenvecto-wiki}.
-
-\paragraph{Katz centrality.}   A variant of Eigenvector centrality is Katz
-centrality, which computes a node score also by taking influence of other
-nodes into account. In this case, the distance from all other nodes are
-considered, and the larger the distance between $u, v$, the smaller the
-influence that $u$ and $v$ have on each other. Interested readers can refer 
-to~\cite{katz-wiki} for more details.
-
-\paragraph{Pagerank algorithm.}  Another variant of Eigenvector centrality is
-PageRank used by Google Search~\cite{pagerank-wiki} to rank the websites in
-their search results. The difference between Pagerank and Eigenvector
-centrality and Katz centrality is that the connecting neighbors are taken into
-account, not the connected nodes. For example, in Eigenvector centrality, all
-nodes $v$ so that $a_{u, v}= 1$ will have affect on $u$'s score, while in
-Pagerank, only nodes $v$ having $a_{v, u} = 1$ will do.
+Degree centrality measures the number of connections to a node.
+The total number of vertices adjacent to node is the degree of that
+node. Degree centrality is the simplest and commonly used measure to understand 
+the connection between nodes in graph. In undirected graphs, this
+centrality is useful to decide the highly connected nodes.
+In directed graphs, the total number of indegree of a node indicates the
+popularity of that node and the outdegrees act as a measure of
+generosity or gregarious nature. 
 
 
 \subsection{Related work}

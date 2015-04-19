@@ -1,4 +1,4 @@
-\section{Implementation \& Evaluation}
+\section{Evaluation}
 \label{sec:eval}
 
 
@@ -10,8 +10,8 @@ answering  our goals using the patent dataset.
 
 	\begin{itemize}
 		% \squish
-		\item We use IGraph for all our graph analysis and metric
-		calculation~\cite{gephi, igraph}. 
+		\item We use IGraph C library for all our graph analysis and metric
+		calculation~\cite{gephi, igraph}. We use \texttt{matplotlib} library from Python to plot all our graphs~\cite{python}.
 		
 		\item The configuration of our experimental desktop machine is RAM $32$ GB, $12$
 		core with processor speed of $2.6$ GHz Intel® Xeon(R) CPU E5-2630 v2 and platform is Ubuntu $14.04$.
@@ -158,7 +158,7 @@ We calculate the total number of citations for all patents assigned to a particu
 This answers our Q3. 
 
 \paragraph{Validating Answer 3.}
-To validate the soundness of our proposed metrics, we cross-check our rankings
+To validate the fairness of our proposed metrics, we cross-check our rankings
 with public ally available rankings for the year 2013 by 24/7 Wall Street and
 Reuters. These two lists are representatives of quantity and quality
 respectively.  24/7 Wall Street report is purely based on number of patents

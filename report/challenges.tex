@@ -1,22 +1,18 @@
 \section{Key Challenges}
 	\begin{itemize}
 	\squish
-		\item {\em Organization Disambiguation.} Apart from inventors, organizations are also the focus of
-		our study, disambiguating their names seems to be crucial as well. Hence we will
-		now run a disambiguation step for the organization step before constructing
-		our citation network.
 		\item {\em Data Processing:} We extracted the data from raw XML to SQLite and
 		GraphML format for years 2005 to 2013. For the rest of the data, we relied on
-		the already available processed data from Harvard.
+		the already available processed data from Harvard, since the data formats vary largely across years before 2005.
 		\item {\em Inventor Disambiguation:} We used the previously proposed pre-
 		processing and disambiguation algorithm to generate a list of unique
 		inventors.
-		\item {\em Organization / Assignee Disambiguation:} For the next phase of
-		evaluation, we will run a simple pre-processing algorithm for disambiguating
+		\item {\em Organization / Assignee Disambiguation:} We ran a simple pre-processing algorithm for disambiguating
 		organization names. For example, IBM Corp. vs. International Business Machines
-		Corporation are considered different organizations currently. We will use a
+		Corporation are considered different organizations currently. We used a
 		similar algorithm as for inventor disambiguation, to merge multiple assignees
 		with such names into a single entity.
+		\item{\em Selecting the correct metric:} Initially, we considered Eigenvector centrality as our metric for measuring the  impact of an innovation. On further investigation, we realised that its not the apt metric, since 
 		% \item{\em Considering time as a factor:} Optionally, we plan to study the evolution 
 		% of the citation and the co-authorship network over a period of time, and if forming a 
 		% link leads to increase / decrease in our measures. We have retained the time 

@@ -115,15 +115,61 @@ Figure~\ref{fig:distance_patent} shows the relation of the distance from
 Kia Silverbrook and the no. of patents for an inventor. This graph also follows a
 normal distribution.
 
+
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{clcl}
+\hline
+\multicolumn{1}{|l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization Name}}                  & \multicolumn{1}{l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization}}                     \\ \hline
+\multicolumn{1}{|c|}{1}             & \multicolumn{1}{l|}{International Business Machines Corporation} & \multicolumn{1}{c|}{11}            & \multicolumn{1}{l|}{Hewlett Packard Company}                   \\ \hline
+\multicolumn{1}{|c|}{2}             & \multicolumn{1}{l|}{Hitachi Ltd}                                 & \multicolumn{1}{c|}{12}            & \multicolumn{1}{l|}{Texas Instruments Incorporated}            \\ \hline
+\multicolumn{1}{|c|}{3}             & \multicolumn{1}{l|}{Matsushita Electric Industrial Co Ltd,}      & \multicolumn{1}{c|}{13}            & \multicolumn{1}{l|}{Sony Corporation}                          \\ \hline
+\multicolumn{1}{|c|}{4}             & \multicolumn{1}{l|}{Canon Kabushiki Kaisha,}                     & \multicolumn{1}{c|}{14}            & \multicolumn{1}{l|}{Intel Corporation}                         \\ \hline
+\multicolumn{1}{|c|}{5}             & \multicolumn{1}{l|}{Motorola Inc,}                               & \multicolumn{1}{c|}{15}            & \multicolumn{1}{l|}{Micron Electric Co Ltd}                    \\ \hline
+\multicolumn{1}{|c|}{6}             & \multicolumn{1}{l|}{Toshiba Corporation,}                        & \multicolumn{1}{c|}{16}            & \multicolumn{1}{l|}{Eastman Kodak Company}                     \\ \hline
+\multicolumn{1}{|c|}{7}             & \multicolumn{1}{l|}{General Electric Company,}                   & \multicolumn{1}{c|}{17}            & \multicolumn{1}{l|}{Minnesota Mining \& Manufacturing Company} \\ \hline
+\multicolumn{1}{|c|}{8}             & \multicolumn{1}{l|}{AT\&T Corp,}                                 & \multicolumn{1}{c|}{18}            & \multicolumn{1}{l|}{Microsoft Corporation}                     \\ \hline
+\multicolumn{1}{|c|}{9}             & \multicolumn{1}{l|}{Fujitsu Limited,}                            & \multicolumn{1}{c|}{19}            & \multicolumn{1}{l|}{Samsung Electronics Co Ltd}                \\ \hline
+\multicolumn{1}{|c|}{10}            & \multicolumn{1}{l|}{Xerox Corporation,}                          & \multicolumn{1}{c|}{20}            & \multicolumn{1}{l|}{NEC Corporation}                           \\ \hline
+\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
+\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
+\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
+\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
+\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
+\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
+\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                               
+\end{tabular}
+\caption{List of top 20 innovators for year 2013 as calculated by our proposed metrics.}
+\label{lst:top20}
+\end{table*}
+
+
 \subsection{Validation}
 
-To validate the soundness of our proposed metrics, we cross-check our rankings with publically available rankings for the year 2013 by 24/7 Wall Street and Reuters. These two lists are representatives of quantity and quality respectively. 
-24/7 Wall Street report is purely based on number of patents granted to an organization till that year. 
-On the other hand, Reuters consider both quantitative as well as qualitative factors with respect to time. Specifiaclly, the factors such as volume of patents filed in lat five years, success ratio of filed patents, global contributions apart from US patents, and citation impact of invention in last five years~\cite{reuters-method}. 
-% Table~\ref{}
+To validate the soundness of our proposed metrics, we cross-check our rankings
+with public ally available rankings for the year 2013 by 24/7 Wall Street and
+Reuters. These two lists are representatives of quantity and quality
+respectively.  24/7 Wall Street report is purely based on number of patents
+granted to an organization till that year.  On the other hand, Reuters
+consider both quantitative as well as qualitative factors with respect to
+time. Specifically, the factors such as volume of patents filed in last five
+years, success ratio of filed patents, global contributions apart from US
+patents, and citation impact of invention in last five years~\cite{reuters-method}.
 
+Table~\ref{tab:validation} shows the top 5 innovative organizations in 2013 as
+reported by 24/7 Wall Street and the corresponding rankings as per our
+proposed metrics. We report that all of these 5 organizations occur in top 20
+list as per our metrics (See Table~\ref{lst:top20} for the complete list).
+This validates that our metric fairly succeeds in covering the quantitative
+aspects of innovation.
 
-% 41\%
+We also compare our rankings to the list of top 100 innovators by Thomas
+Reuters. Their report only states the top 100 innovators and does not give any
+rankings. Thus, we only compare the percentage of organizations that fall in
+top 100 in both Reuters are well as our rankings. On analysis, we find that
+this intersection size is 41\%, which validates that our metric fairly
+succeeds in covering the qualitative aspects of innovation.
 
 \begin{table}[h]
 \centering

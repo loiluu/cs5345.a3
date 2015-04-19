@@ -27,11 +27,10 @@ signifies the number of joint patents
 
 	\begin{itemize}
 	\squish
-		\item {Vertices:} Inventors ($I_1$, $I_2$, ...) or Patents ($P_1$, $P_2$, ...)
-		\item {Edges:} Citations or Inventions
+		\item {Vertices:} Patents ($P_1$, $P_2$, ...)
+		\item {Edges:} Citations 
 	\end{itemize}
 
-There exists an `invention' edge between $I_1$ and $P_1$ if $I_1$ is an inventor of $P_1$.
 There exists a directed `citation' edge from $P_1$ to $P_2$ if $P_1$ cites $P_2$.
 
 \subsection{Definitions \& Insights}
@@ -42,23 +41,35 @@ There exists a directed `citation' edge from $P_1$ to $P_2$ if $P_1$ cites $P_2$
 		the collaborative distance as the length of the shortest path in
 		Graph G1.
 		\item {\em Invention impact.} For a given inventor, we define his /
-		her invention impact as the eigenvalue centrality for this inventor
-		in Graph G2.
+		her invention impact as the sum of degree centrality for
+		all the patents from Graph G2 of this inventor.
 	\end{itemize}
 
 % \subsection{Insight}
 
-In our model, the impact of an inventor is measured by the number of patents
-he / she invents (quantity) as well as the number of references for each of
-these patents (quality). Thus, intuitively, the more is the eigenvalue
+In our model, the impact of an inventor is measured by the total number of citations
+to the patents that he / she invents. Thus, intuitively, the more is the sum of degree
 centrality measure, the inventor is more `impactful'. Similarly, we use
 collaborative distance to measure the `connectedness' between two inventors.
 Thus, intuitively, the smaller the collaborative distance, the closer they are
 to each other in terms of connection in the graph.  In a nutshell, the answers
 to our questions framed in our problem description follow from these insights:
 
-\paragraph{Answer 1.} Check the correlation between collaborative distance and invention impact. 
+\paragraph{Answer 1.} Check the correlation between collaborative distance and invention impact.
+If inventors with smaller value of collaborative distance from an impactful inventor have 
+high value for invention impact, then we can say that collaborative distance from an impactful inventor
+affects the invention impact of an individual inventor.
 
 \paragraph{Answer 2.} Check the correlation between collaborative distance and organization.
+Check whether most inventors within the same organization as the impactful inventor
+have smaller collaborative distance or inventors outside the orgranization have
+smaller distance.
 
 \paragraph{Answer 3.} Check the correlation between invention impact and organization.
+Calculate the sum of degree centralities from Graph G2 for each organization and rank the 
+organization depending on the centrality measure. Organization with highest sum of degree
+centralities is the most impactful and is ranked one. Compare this list with publicly available
+list of innovative organization. Similarity in the two list indicates that total citations for the patents
+is a correct metric to decide the invention impact of an organization.
+
+

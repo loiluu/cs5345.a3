@@ -34,10 +34,10 @@ of shapes of chocolates)? Secondly, having a handful of prolific inventors in
 an organization may be sufficient to churn patents rapidly, but does it mean
 that the organization as a whole is innovative? Lastly, how is the dynamics
 between co-inventors, do they tend to collaborate more often with other
-impactful inventors, does their involvement affect the frequency and quality of patent grant in any
-way? This helps to throw light on the evolution of innovation within an
-organization, thus giving insights about the future prospects of innovation
-for a given organization.
+impactful inventors, does their involvement affect the frequency and quality 
+of patent grant in any way? This helps to throw light on the evolution of 
+innovation within an organization, thus giving insights about the future 
+prospects of innovation for a given organization.
 
 For a systematic study of the above factors, we confine our problem to
 answering the following research questions:
@@ -55,25 +55,21 @@ recent past? %(b) (eigen org)
 
 \subsection{Assumptions}
 \label{sec:assumptions}
-
-
 	\begin{itemize}
 	\squish
-		
 		\item We consider only a subset of the entire patents that were granted till
 		date. Specifically, we study patents granted from year 1975 to 2013. There are
 		two main reasons for selecting this time frame: (a) Patent data set before
 		1975 is only available in OCR format, which is difficult to parse, and
-		increases the efforts for preprocessing. (b) The disambiguation algorithm~\cite{disambiguation} 
-		requires training models and custom parameters, which are available from previous research. However,
-		the models and parameters are available only till year 2013, when the study
-		was conducted. To maintain the precision in disambiguation and avoid re-
-		running the classification on the whole database, we limit our study to
-		patents granted till 2013.
-
+		increases the efforts for preprocessing. (b) The disambiguation
+		algorithm~\cite{disambiguation}  requires training models and custom
+		parameters, which are available from previous research. However, the models
+		and parameters are available only till year 2013, when the study was
+		conducted. To maintain the precision in disambiguation and avoid re- running
+		the classification on the whole database, we limit our study to patents
+		granted till 2013.
 		\item We ignore the references to Non-US patents and other sources, since it
-		is difficult to track all such sources. 
-		We are only concerned about `Who
+		is difficult to track all such sources.  We are only concerned about `Who
 		cited this patent?', to decide if it is impactful. In this case, we do not
 		need data before 1975, since all the patents after 1975 will be cited only by
 		patents after 1975 (for e.g., a patent granted in 2007 will be cited only in
@@ -84,22 +80,13 @@ recent past? %(b) (eigen org)
 
 	\end{itemize}
 
-
 \subsection{Contributions}
 
 To summarize, we make the following contributions:
 
-\begin{itemize} 
-\squish
-\item {\em Study the inventor network.} We study various properties of the inventor network in the US grant patent dataset for past four decades.  
-\item {\em Metrics for measuring innovation.} We device a fair metric to measure the innovativeness and impact of an inventor and corresponding organization. This allows us to rank various organizations based on their innovations alone. 
-\item {\em Soundness of metrics.} We verify if our metrics are sound to qualitatively and quantitatively measure the innovation impact of an organization by comparing our ranking results to public lists.
-\end{itemize}
-
-
-% References:
-% http://www.fastcompany.com/section/most-innovative-companies-2015
-% http://www.forbes.com/innovative-companies/
-% https://www.bcgperspectives.com/most_innovative_companies
-% http://top100innovators.com/
-% http://www.brw.com.au/lists/50-most-innovative-companies/2014/
+	\begin{itemize} 
+	\squish
+		\item {\em Study the inventor network.} We study various properties of the inventor network in the US grant patent dataset for past four decades.  
+		\item {\em Metrics for measuring innovation.} We device a fair metric to measure the innovativeness and impact of an inventor and corresponding organization. This allows us to rank various organizations based on their innovations alone. 
+		\item {\em Soundness of metrics.} We verify if our metrics are sound to qualitatively and quantitatively measure the innovation impact of an organization by comparing our ranking results to public lists such as Forbes and Reuters~\cite{forbes, top100}.
+	\end{itemize}

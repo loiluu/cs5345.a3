@@ -1,36 +1,80 @@
-\documentclass[11pt]{article}
-
+%\documentclass[11pt,twocolumn]{article}
+\documentclass[10pt]{article}
 \usepackage[compact]{titlesec}  
 \usepackage{xspace}
 \usepackage[margin=0.75in]{geometry}
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pifont} 
+\usepackage{float} 
+\usepackage{listings}
+\usepackage{caption}
+
+
 \usepackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue,
             citecolor = blue,
             anchorcolor = blue]{hyperref}
-\usepackage{amsmath}
 
 \renewcommand{\paragraph}{\vspace{3pt}\noindent\textbf}
 \newcommand{\etal}{\textit{et al}.\xspace}
+\newcommand{\tick}{\ding{52}} 
 \newcommand{\squish}{
   \setlength{\topsep}{0pt}
   \setlength{\itemsep}{0ex}
   %\vspace{-2ex}
   \setlength{\parskip}{0pt}
 }
-\pagenumbering{roman}
 
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   %backgroundcolor=\color{lightgray},
+   %frame=bt,   
+   basicstyle=\ttfamily\footnotesize,
+   extendedchars=true,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=none,
+   % numberstyle=\scriptsize,
+   % numbersep=3pt,
+   tabsize=2,
+   keepspaces=false,
+   columns=flexible,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+\pagenumbering{roman}
 %\newcommand{\codename} {{\sc ICan}\xspace}
+
+
 \begin{document}
 \title{
 \vspace{-6ex}
 Mirror Mirror on the Wall, \\
  Who is the Most Innovative of Them All? }
 \author{Shruti Tople {\footnotesize (A0109720M)} \qquad Shweta Shinde {\footnotesize(A0109685U)} \qquad Loi Luu {\footnotesize(A00095481X)}\\ \texttt{\{shruti90, shweta24, loiluu\}~@comp.nus.edu.sg} \\ \\
-%CS5345-Assignment 3:Project Proposal
 Group 6: SSL 3.0
 }
 \date{}
@@ -38,139 +82,14 @@ Group 6: SSL 3.0
 \maketitle
 \pagestyle{empty}
 \thispagestyle{empty}
-\section{Introduction}
 
-Innovation is credited with creating the emerging trends in technology.
-It is well established and accepted fact that patents play a crucial role in the study of innovation and technical change~\cite{narin1987patents}. Analyzing the patent data can help to understand the trends in technology development and asses the innovation levels of various inventors as well as their affiliated organizations. 
-
-Patent citations allow one to study importance of individual patents~\cite{albert1991direct}. The inventor collaboration represents the state of the innovation environment and the overall contribution of the organization to the invention field. We focus our study on these two aspect of the social network of US inventions, and propose metrics to compare the innovative throughput of a given organization. While doing this, we carefully account for both the qualitative as well as the quantitative impact of the organization as a whole thus capturing the enormous heterogeneity in the value of patents. In this project, we study the inventor and bibliometrics network of the patents granted by United States Patent and Trademark Office (USPTO).
-
+\input{intro}
+\input{problem}
 \input{literature}
-\section{Problem Description} 
-In this project, we aim to answer the following questions:
-
-\paragraph{Question 1.} Is a inventor more impactful because he is closely connected to other impactful inventors in the patent social network? %(c) (eigen erdos)
-
-\paragraph{Question  2.} Are inventors closely connected to an impactful inventor in their own organization or other organizations? %(a) (erdos org)
-
-\paragraph{Question  3.} Has the organization made impactful inventions in recent past? %(b) (eigen org)
-
-\section{Approach \& Proposed Contribution}
-
-\subsection{Model}
-
-\paragraph{Graph G1: Undirected Graph.}
-\begin{itemize}
-\squish
-\item {Vertices:} Inventors  ($I_1$, $I_2$, ...)
-\item {Edges:} Patent IDs
-\end{itemize}
-
-There exists an edge between $I_1$ and $I_2$ if these two inventors have a joint patent.
-Since two inventors can have multiple joint patents, the weight signifies the number of joint patents 
-
-\paragraph{Graph G2: Directed Graph.}
-\begin{itemize}
-\squish
-\item {Vertices:} Inventors ($I_1$, $I_2$, ...) or Patents ($P_1$, $P_2$, ...)
-\item {Edges:} References or Inventions
-\end{itemize}
-
-There exists an `invention' edge between $I_1$ and $P_1$ if $I_1$ is an inventor of $P_1$.
-There exists a directed `reference' edge from $P_1$ to $P_2$ if $P_1$ references $P_2$
-
-\subsection{Definitions}
-\begin{itemize}
-\squish
-\item {\em Collaborative distance.} For any two inventors, we define the collaborative distance as the length of the shortest path in Graph G1. 
-\item {\em Invention impact.} For a given inventor, we define his / her invention impact as the eigenvalue centrality for this inventor in Graph G2. 
-\end{itemize}
-
-\subsection{Insight}
-In our model, the impact of an inventor is measured by the number of patents he / she invents (quantity) as well as the number of references for each of these patents (quality). Thus, intuitively, the more is the eigenvalue centrality measure, the inventor is more `impactful'. Similarly, we use collaborative distance to measure the `connectedness' between two inventors. Thus, intuitively, the smaller the collaborative distance, the closer they are to each other in terms of connection in the graph. 
-In a nutshell, the answers to our questions framed in our problem description follow from these insights:
-
-\paragraph{Answer 1.} Check the correlation between collaborative distance and invention impact. 
-
-\paragraph{Answer 2.} Check the correlation between collaborative distance and organization.
-
-\paragraph{Answer 3.} Check the correlation between invention impact and organization.
-
-		
-\section{Underlying assumptions} % (if any)
-\begin{itemize}
-\squish
-\item We consider only a subset of the entire patents that were granted till date. Specifically, we study patents granted from year 2005 to 2015. This assumption helps us to reduce the dataset size, allows to study the current trend in innovation and makes the pre-processing easier due to the consistency in data format (all the archives are in XML from year 2005 onwards).
-\item Hence, we ignore all the references to patents before 2005. 
-\item We also ignore the references to Non-US patents and other sources.
-\item To identify whether similar names correspond to a single inventor (e.g., John Doe and John S. Doe), we consider if combination of first name, last name, state and country is unique, and if so, group all such names under a single inventor. 
-\item We do not perform any analysis for disambiguating organization names. For example, IBM Corp. vs. International Business Machines Corporation are considered different organizations.
-\item Patents with Missing organization name  are assigned to `Individual patents'.
-\item If the two nodes for collaborative distance belong to two disconnected graphs, then we assume the distance to be infinite.
-\end{itemize}
-
-
-\section{Requirements}
-
-\paragraph {Dataset.} 
-We use the USPTO patent grant full text dataset from January 2005 to February 2015. 
-The dataset includes patent number, series code and application number, type of patent, filing date, title, issue date, inventor information, assignee name at time of issue, foreign priority information, related US patent documents, classification information, US and foreign references, attorney, agent or firm/legal representative, Patent Cooperation Treaty (PCT) information, abstract, specification, and claims for each patent. We consider only the following fields from the dataset for our study: patent number, issue date, inventor name, inventor address, assignee name at time of issue, US references.
-
-\paragraph{Tools.}
-We plan to use the following tools for our project.
-\begin{itemize}
-\squish
-\item Gephi and / or IGraph: Graph analysis and metric calculation~\cite{gephi, igraph}.
-\item GraphViz, Gnuplot: Data visualization and result plotting~\cite{graphviz, gnuplot}.
-\item Standard libraries and custom Python Scripts: For data extraction~\cite{python}.
-\end{itemize}
-
-\section{Key Activities}
-\begin{itemize}
-\squish
-\item {\em Data Processing:} Extract data from XML to CSV / GraphML format.
-\item {\em Inventor Disambiguation:} Run a simple pre-processing algorithm to generate a list of unique inventors.  This is crucial to decide on whether two inventors with similar names are the same person or not.
-\item {\em Eigenvalue centrality:} Use the Newman's leading eigenvector algorithm in IGraph to calculate eigenvalue centrality for each unique inventor with respect to patents that cite his / her patent.
-\item {\em Collaborative distance:} Calculate the shortest path of each inventor w.r.t to the inventor with maximum eigenvalue centrality in the whole graph. As a sub-activity, we plan to use three algorithms viz. Djikstra, Bellman-Ford, Johnson from IGraph to compare their performance.
-\item {\em Data analysis and comparison:} Plot the graphs for the above generated data and analyze the relationship between the above two measurements.
-\end{itemize}
-
-\section{Success Measures} %(in terms of evaluation, experimentation, testing, etc.)
-\begin{itemize}
-%\squish
-\item Test the algorithms for computing shortest path and analyze their scalability with respect to the nature of the patent network graph
-\item Compare our ranking results for the most innovative organization with publicly available list such as Forbes list, to check if our ranking metric coincides with the results of other metrics.
-\end{itemize}
-
-\section{Project plan}
-\begin{table}[H]
-%\footnotesize
-\centering
-\begin{tabular}{| l | l | }
-\hline
-{Date} & {Activity} \\
-\hline
-\hline
-24th March & Data Extraction and Author Disambiguation\\
-31st March & Calculate Eigenvalue centrality for all nodes\\
-7th April & Calculate shortest path between nodes - Run 3 algorithms\\
-14th April &  Comparison charts and analysis\\
-17th April & Final Report Submission\\
-\hline
-\end{tabular}
-\label{tbl:milestone}
-% \vspace{-0.5cm}
-\end{table}
-
-\section{Deliverables / accomplishments }
-\begin{itemize}
-\squish
-\item Source code and processed dataset
-\item Ranking of organization according to the impact w.r.t to approved patents
-\item Plot of invention impact vs collaborative distance to answer Question 1
-\item Plot of invention impact vs organization to answer Question 2
-\item Plot of collaborative distance vs organization to answer Question 3
-\end{itemize}
+\input{data}
+\input{model}
+\input{eval}
+\input{progress-plan}
 
 {
 \footnotesize

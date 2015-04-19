@@ -39,13 +39,13 @@ Patent ID, name and address of all the inventors and assignees, year of patent g
 \end{itemize}
 
 
-\subsection{Author \& Organization Disambiguation}
+\subsection{Author and Organization Disambiguation}
 
 Apart from the primary dataset from USPTO, we use secondary data sets which are necessary for the disambiguation. Specifically, we use the NBER patent database which contains patents granted from 1975-1999~\cite{NBER}, Micropaten~\cite{micropatent}, USPTO CASSIS dataset for patent classification, National Geospatial-Intelligence Agency and US Board Geographic Names data sets~\cite{geocoding, geotable}. The secondary datasets are purely used for disambiguation and are not used for our main evaluation. These data sets are implicitly used for by the disambiguation algorithm available from ~\cite{disambiguation}.
 
 \begin{figure}[H]
 		  \centering	
-          \includegraphics[scale=0.4]{../figures/process.pdf}
+          \includegraphics[scale=0.4]{figure/process.pdf}
           \caption{Overview of data collection and pre-processing steps to generate the co-inventorship and citation graphs.}
           \label{process}
 
@@ -65,7 +65,7 @@ It first partitions the whole database into blocks which comprise of small group
 analyzed independently of the rest of the records, so as to accelerate the process. Due to this, the disambiguation problem boils down to a classification problem --- does. It can be addressed with fair precision using the standard Naive Bayes classifier. 
 It uses a trained probabilistic model which assumes multidimensional data and provides natural likelyhood-based framework for clustering. Further, the training is done via automatically generated training sets which are tailored to have highly probable matches and non-matches of samples. Further, the model is trained on intentionally generic predictive features such as relation between first name, last name, co-authors, technology class, location co-ordinates, assignee etc. 
 
-\subsection{Data Consolidation \& Graph Construction}
+\subsection{Data Consolidation and Graph Construction}
 
 We construct two graphs after the disambiguation phase is complete. 
 The first graph is for the co-inventor network, where a vertex is an inventor, while an edge represents that two inventors have a joint patent. The second graph is for the citation network, where the vertices can be inventors or patents and the edges are citations (See Section~\ref{sec:model} for details).

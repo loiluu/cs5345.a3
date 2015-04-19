@@ -1,23 +1,50 @@
 \section{Implementation \& Evaluation}
 \label{sec:eval}
 
-\begin{table}
+
+
+\begin{table*}[t]
+\centering
+\begin{tabular}{clcl}
+\hline
+\multicolumn{1}{|l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization Name}}                  & \multicolumn{1}{l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization}}                     \\ \hline
+\multicolumn{1}{|c|}{1}             & \multicolumn{1}{l|}{International Business Machines Corporation} & \multicolumn{1}{c|}{11}            & \multicolumn{1}{l|}{Hewlett Packard Company}                   \\ \hline
+\multicolumn{1}{|c|}{2}             & \multicolumn{1}{l|}{Hitachi Ltd}                                 & \multicolumn{1}{c|}{12}            & \multicolumn{1}{l|}{Texas Instruments Incorporated}            \\ \hline
+\multicolumn{1}{|c|}{3}             & \multicolumn{1}{l|}{Matsushita Electric Industrial Co Ltd,}      & \multicolumn{1}{c|}{13}            & \multicolumn{1}{l|}{Sony Corporation}                          \\ \hline
+\multicolumn{1}{|c|}{4}             & \multicolumn{1}{l|}{Canon Kabushiki Kaisha,}                     & \multicolumn{1}{c|}{14}            & \multicolumn{1}{l|}{Intel Corporation}                         \\ \hline
+\multicolumn{1}{|c|}{5}             & \multicolumn{1}{l|}{Motorola Inc,}                               & \multicolumn{1}{c|}{15}            & \multicolumn{1}{l|}{Micron Electric Co Ltd}                    \\ \hline
+\multicolumn{1}{|c|}{6}             & \multicolumn{1}{l|}{Toshiba Corporation,}                        & \multicolumn{1}{c|}{16}            & \multicolumn{1}{l|}{Eastman Kodak Company}                     \\ \hline
+\multicolumn{1}{|c|}{7}             & \multicolumn{1}{l|}{General Electric Company,}                   & \multicolumn{1}{c|}{17}            & \multicolumn{1}{l|}{Minnesota Mining \& Manufacturing Company} \\ \hline
+\multicolumn{1}{|c|}{8}             & \multicolumn{1}{l|}{AT\&T Corp,}                                 & \multicolumn{1}{c|}{18}            & \multicolumn{1}{l|}{Microsoft Corporation}                     \\ \hline
+\multicolumn{1}{|c|}{9}             & \multicolumn{1}{l|}{Fujitsu Limited,}                            & \multicolumn{1}{c|}{19}            & \multicolumn{1}{l|}{Samsung Electronics Co Ltd}                \\ \hline
+\multicolumn{1}{|c|}{10}            & \multicolumn{1}{l|}{Xerox Corporation,}                          & \multicolumn{1}{c|}{20}            & \multicolumn{1}{l|}{NEC Corporation}                           \\ \hline                                                               
+\end{tabular}
+\caption{List of top 20 innovators for year 2013 as calculated by our proposed metrics.}
+\label{lst:top20}
+\end{table*}
+
+
+\begin{table}[t]
 		\begin{tabular}{| l | l |}
 		\hline
 		
-		{Type} & {Count} \\
+		{Type} & {Count or Details} \\
 		\hline
 		\hline
-		Inventors (Nodes) & 1222689 \\
-		Co-authorships (Edges) & 3431064 \\
-		Source Node & Kia Silverbrook\\
+		G1 Nodes & 1222689 \\
+		G1 Edges & 3431064 \\
+		G2 Nodes & 1222689 \\
+		G2 Edges & 3431064 \\
+		G1 Source Node & Kia Silverbrook \\
+		Inventors with infinite dist. & \\
+		Patents with zero citations & \\
 		\hline
 	\end{tabular}		
 	\caption {\scriptsize Details of the co-authorship graph}
 	\label{tab:model}
 \end{table}	
 
-\begin{table}	
+\begin{table}[t]
 	\begin{tabular}{| l | l |}
 		\hline
 		{Algorithm} & {Time (sec)} \\
@@ -32,7 +59,7 @@
 	\label{tab:algos}
 \end{table}					
 
-\begin{figure}
+\begin{figure}[t]
   \includegraphics[scale=0.425]{figure/silver_brook_distance.pdf}
   \caption{\scriptsize Graph shows the frequency of nodes on Y-axis and the distance from
 Kia Silverbrook on X-axis }
@@ -45,14 +72,21 @@ Kia Silverbrook on X-axis }
 \label{fig:patent}	
 \end{figure}
 
-\begin{figure}
+\begin{figure}[t]
   \includegraphics[scale=0.425]{figure/distance_patents.pdf}
   \caption{\scriptsize Relationship graph of no. of patents of an inventor and his distance from Kia Silverbrook}
 \label{fig:distance_patent}
 \end{figure}
 
+\begin{figure}[t]
+  \includegraphics[scale=0.425]{figure/abc.pdf}
+  \caption{\scriptsize Relationship graph of no. of citations for all patents of an inventor (i.e., the cumulative degree centrality) and his distance from Kia Silverbrook}
+\label{fig:distance_citation}
+\end{figure}
 
-\begin{figure}
+
+
+\begin{figure}[t]
   \includegraphics[scale=0.425]{figure/same_diff_org.pdf}
   \caption{\scriptsize Relationship graph of organisation of an inventor and his distance from Kia Silverbrook}
 \label{fig:same_diff}
@@ -102,33 +136,6 @@ answering  our goals using the patent dataset.
 	\end{itemize}
 
 
-
-\begin{table*}[t]
-\centering
-\begin{tabular}{clcl}
-\hline
-\multicolumn{1}{|l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization Name}}                  & \multicolumn{1}{l|}{\textbf{Rank}} & \multicolumn{1}{l|}{\textbf{Organization}}                     \\ \hline
-\multicolumn{1}{|c|}{1}             & \multicolumn{1}{l|}{International Business Machines Corporation} & \multicolumn{1}{c|}{11}            & \multicolumn{1}{l|}{Hewlett Packard Company}                   \\ \hline
-\multicolumn{1}{|c|}{2}             & \multicolumn{1}{l|}{Hitachi Ltd}                                 & \multicolumn{1}{c|}{12}            & \multicolumn{1}{l|}{Texas Instruments Incorporated}            \\ \hline
-\multicolumn{1}{|c|}{3}             & \multicolumn{1}{l|}{Matsushita Electric Industrial Co Ltd,}      & \multicolumn{1}{c|}{13}            & \multicolumn{1}{l|}{Sony Corporation}                          \\ \hline
-\multicolumn{1}{|c|}{4}             & \multicolumn{1}{l|}{Canon Kabushiki Kaisha,}                     & \multicolumn{1}{c|}{14}            & \multicolumn{1}{l|}{Intel Corporation}                         \\ \hline
-\multicolumn{1}{|c|}{5}             & \multicolumn{1}{l|}{Motorola Inc,}                               & \multicolumn{1}{c|}{15}            & \multicolumn{1}{l|}{Micron Electric Co Ltd}                    \\ \hline
-\multicolumn{1}{|c|}{6}             & \multicolumn{1}{l|}{Toshiba Corporation,}                        & \multicolumn{1}{c|}{16}            & \multicolumn{1}{l|}{Eastman Kodak Company}                     \\ \hline
-\multicolumn{1}{|c|}{7}             & \multicolumn{1}{l|}{General Electric Company,}                   & \multicolumn{1}{c|}{17}            & \multicolumn{1}{l|}{Minnesota Mining \& Manufacturing Company} \\ \hline
-\multicolumn{1}{|c|}{8}             & \multicolumn{1}{l|}{AT\&T Corp,}                                 & \multicolumn{1}{c|}{18}            & \multicolumn{1}{l|}{Microsoft Corporation}                     \\ \hline
-\multicolumn{1}{|c|}{9}             & \multicolumn{1}{l|}{Fujitsu Limited,}                            & \multicolumn{1}{c|}{19}            & \multicolumn{1}{l|}{Samsung Electronics Co Ltd}                \\ \hline
-\multicolumn{1}{|c|}{10}            & \multicolumn{1}{l|}{Xerox Corporation,}                          & \multicolumn{1}{c|}{20}            & \multicolumn{1}{l|}{NEC Corporation}                           \\ \hline
-\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
-\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
-\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
-\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
-\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
-\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                                \\
-\multicolumn{1}{l}{}                &                                                                  & \multicolumn{1}{l}{}               &                                                               
-\end{tabular}
-\caption{List of top 20 innovators for year 2013 as calculated by our proposed metrics.}
-\label{lst:top20}
-\end{table*}
 
 \subsection{Results}
 Table~\ref{tab:algos} shows the execution time for each of the three shortest
@@ -185,7 +192,7 @@ top 100 in both Reuters are well as our rankings. On analysis, we find that
 this intersection size is 41\%, which validates that our metric fairly
 succeeds in covering the qualitative aspects of innovation.
 
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \begin{tabular}{|l|c|c|}
 \hline

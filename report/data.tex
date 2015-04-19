@@ -68,55 +68,55 @@ It uses a trained probabilistic model which assumes multidimensional data and pr
 We construct two graphs after the disambiguation phase is complete. 
 The first graph is for the co-inventor network, where a vertex is an inventor, while an edge represents that two inventors have a joint patent. The second graph is for the citation network, where the vertices can be inventors or patents and the edges are citations (See Section~\ref{sec:model} for details).
 We extract this information from our SQLite database, and generate a GraphML file for this network.
-Table~\ref{listing} shows an example entry from GraphML for this network.
+% Table~\ref{listing} shows an example entry from GraphML for this network.
 We report the statistics about the graph size and properties in Section~\ref{sec:eval}.
 
-\begin{table*}[h] 
-  \centering
-  \begin{tabular}{@{}c@{}} 
+% \begin{table*}[h] 
+%   \centering
+%   \begin{tabular}{@{}c@{}} 
 
-  \begin{minipage}{0.25\linewidth}
+%   \begin{minipage}{0.25\linewidth}
 
-\begin{lstlisting}[]
-<node id="n196819">
-  <data key="Loc">BOZEMAN-MT-US</data>
-  <data key="Name">BERG, LLOYD</data>
-  <data key="id">04292142-1</data>
-  <data key="Patents">247</data>
-</node>
-\end{lstlisting}
+% \begin{lstlisting}[]
+% <node id="n196819">
+%   <data key="Loc">BOZEMAN-MT-US</data>
+%   <data key="Name">BERG, LLOYD</data>
+%   <data key="id">04292142-1</data>
+%   <data key="Patents">247</data>
+% </node>
+% \end{lstlisting}
 
-  \end{minipage}
-  \hspace{0.05\linewidth}
-  \begin{minipage}{0.3\linewidth}
+%   \end{minipage}
+%   \hspace{0.05\linewidth}
+%   \begin{minipage}{0.3\linewidth}
 
-\begin{lstlisting}[]
-<node id="n471405">
-  <data key="Loc">BOZEMAN-MT-US</data>
-  <data key="Name">EDISON, THOMAS A</data>
-  <data key="id">05147512-2</data>
-  <data key="Patents">1</data>
-</node>
-\end{lstlisting}
+% \begin{lstlisting}[]
+% <node id="n471405">
+%   <data key="Loc">BOZEMAN-MT-US</data>
+%   <data key="Name">EDISON, THOMAS A</data>
+%   <data key="id">05147512-2</data>
+%   <data key="Patents">1</data>
+% </node>
+% \end{lstlisting}
 
-  \end{minipage}
-  \hspace{0.05\linewidth}
-  \begin{minipage}{0.3\linewidth}
+%   \end{minipage}
+%   \hspace{0.05\linewidth}
+%   \begin{minipage}{0.3\linewidth}
 
-\begin{lstlisting}[]
-<edge source="n196819" target="n471405">
-  <data key="tId">05147512-2</data>
-  <data key="hId">04292142-1</data>
-  <data key="AppYear">1991</data>
-  <data key="Weight">1</data>
-</edge>
+% \begin{lstlisting}[]
+% <edge source="n196819" target="n471405">
+%   <data key="tId">05147512-2</data>
+%   <data key="hId">04292142-1</data>
+%   <data key="AppYear">1991</data>
+%   <data key="Weight">1</data>
+% </edge>
 
-\end{lstlisting}
+% \end{lstlisting}
 
-  \end{minipage}
+%   \end{minipage}
   
-  \end{tabular}
+%   \end{tabular}
 
-\label{listing}
-\caption{\footnotesize Snippet of entries from GraphXML file. Shows the vertices for Lloyd Berg and Thomas Edison and the corresponding edge between them.}
-\end{table*}
+% \label{listing}
+% \caption{\footnotesize Snippet of entries from GraphXML file. Shows the vertices for Lloyd Berg and Thomas Edison and the corresponding edge between them.}
+% \end{table*}

@@ -25,6 +25,8 @@
 
 
 \begin{table}[t]
+\centering
+
 		\begin{tabular}{| l | l |}
 		\hline
 		
@@ -36,15 +38,18 @@
 		G2 Nodes & 1222689 \\
 		G2 Edges & 3431064 \\
 		G1 Source Node & Kia Silverbrook \\
-		Inventors with infinite dist. & \\
-		Patents with zero citations & \\
+		Infinite dist. within Org & 6217\\
+		Infinite dist. outside Org& 1817586 \\
+		Patents with zero citations & 1349956 \\
 		\hline
 	\end{tabular}		
-	\caption {\scriptsize Details of the co-authorship graph}
+	\caption { Details of the co-authorship graph}
 	\label{tab:model}
 \end{table}	
 
 \begin{table}[t]
+\centering
+
 	\begin{tabular}{| l | l |}
 		\hline
 		{Algorithm} & {Time (sec)} \\
@@ -55,32 +60,32 @@
 		Johnson & 1.29 \\
 		\hline
 	\end{tabular}
-	\caption {\scriptsize Performance of the three shortest path algorithms}
+	\caption { Performance of the three shortest path algorithms}
 	\label{tab:algos}
 \end{table}					
 
 \begin{figure}[t]
   \includegraphics[scale=0.425]{figure/silver_brook_distance.pdf}
-  \caption{\scriptsize Graph shows the frequency of nodes on Y-axis and the distance from
+  \caption{ Graph shows the frequency of nodes on Y-axis and the distance from
 Kia Silverbrook on X-axis }
 \label{fig:distance}
 \end{figure}
 
 \begin{figure}
   \includegraphics[scale=0.425]{figure/silver_log_log.pdf}
-  \caption{\scriptsize Log-log scale graph of no. of patents on Y-axis and the no.of inventors on X-axis}
+  \caption{ Log-log scale graph of no. of patents on Y-axis and the no.of inventors on X-axis}
 \label{fig:patent}	
 \end{figure}
 
 \begin{figure}[t]
   \includegraphics[scale=0.425]{figure/distance_patents.pdf}
-  \caption{\scriptsize Relationship graph of no. of patents of an inventor and his distance from Kia Silverbrook}
+  \caption{Relationship graph of no. of patents of an inventor and his distance from Kia Silverbrook}
 \label{fig:distance_patent}
 \end{figure}
 
 \begin{figure}[t]
   \includegraphics[scale=0.425]{figure/abc.pdf}
-  \caption{\scriptsize Relationship graph of no. of citations for all patents of an inventor (i.e., the cumulative degree centrality) and his distance from Kia Silverbrook}
+  \caption{ Relationship graph of no. of citations for all patents of an inventor (i.e., the cumulative degree centrality) and his distance from Kia Silverbrook}
 \label{fig:distance_citation}
 \end{figure}
 
@@ -88,7 +93,7 @@ Kia Silverbrook on X-axis }
 
 \begin{figure}[t]
   \includegraphics[scale=0.425]{figure/same_diff_org.pdf}
-  \caption{\scriptsize Relationship graph of organisation of an inventor and his distance from Kia Silverbrook}
+  \caption{ Relationship graph of organisation of an inventor and his distance from Kia Silverbrook}
 \label{fig:same_diff}
 \end{figure}
 
@@ -138,23 +143,16 @@ answering  our goals using the patent dataset.
 
 
 \subsection{Results}
-Table~\ref{tab:algos} shows the execution time for each of the three shortest
-path algorithms  when run on our graph G1. We observe that Djikstra's
-algorithm takes $1.28$ seconds, Bellman-ford takes $0.80$ seconds and Johnson
-algorithm takes $1.29$ seconds to run on our experimental setup.
-Figure~\ref{fig:distance} shows the result for the total number of inventors
-having the same distance from Kia Silverbrook. This graph follows a normal
-distribution. Figure~\ref{fig:patent} shows the log-log graph of the total
-no.of patents to total no.of inventors. 
 
+\paragraph{Answer 1.}
+We first calculate the total number of citations for each inventor from Graph G2. Using the collaboration distance calculated from G1, we plot a graph of distance (connectedness) vs. total number of citations (invention impact) of each inventor. 
+Figure~\ref{fig:distance_citation} shows the relation of the distance from
+Kia Silverbrook and the no. of total citations for an inventor. This graph gives a positive answers our Question 1: 
+Yes, an inventor is more impactful because he is closely
+connected to other impactful inventors in the patent social network.
 
-\paragraph{Question 1.}
-Figure~\ref{fig:distance_patent} shows the relation of the distance from
-Kia Silverbrook and the no. of patents for an inventor. This graph also follows a
-normal distribution.
-
-\paragraph{Question 2.}
-To answer question Q2, we divide each inventor into either
+\paragraph{Answer 2.}
+We divide each inventor into either same 
 or different organization. An inventor belongs to 
  same organization category if he has patent with any of the organizations that are 
 assignees for Kia Silverbrook's patents. All other inventors fall in the different
@@ -162,12 +160,15 @@ organization category. With this division, we plot a graph as shown in Figure~\r
 From the graph, we observe that inventors from same organization have
 smaller collaborative distance which is expected. However, interesting observation is that
 even many inventors from different organizations have smaller collaborative distance to Kia Silverbrook. 
+This answers our Question 2:
+Inventors are not only closely connected to an impactful
+inventor in their own organization but also in other organizations.
 
-\paragraph{Question 3.}
+\paragraph{Answer 3.}
+We calculate the total number of citations for all patents assigned to a particular organization using graph G2. We rank the organizations based on this metric of total number of citations. Table~\ref{tab:top20} shows the top 20 organisations that are leading the innovation industry via impactful inventions in last four decades, as per our metric. 
+This answers our Q3. 
 
-
-\subsection{Validation}
-
+\paragraph{Validating Answer 3.}
 To validate the soundness of our proposed metrics, we cross-check our rankings
 with public ally available rankings for the year 2013 by 24/7 Wall Street and
 Reuters. These two lists are representatives of quantity and quality
@@ -206,6 +207,21 @@ Microsoft Corp               & 5                                          & 18  
 \caption{Comparison of Rankings by 24/7 Wall St vs. SSL 3.0.}
 \label{tab:validation}
 \end{table}
+
+
+\paragraph{Miscellaneous Results.}
+Table~\ref{tab:algos} shows the execution time for each of the three shortest
+path algorithms  when run on our graph G1. We observe that Djikstra's
+algorithm takes $1.28$ seconds, Bellman-ford takes $0.80$ seconds and Johnson
+algorithm takes $1.29$ seconds to run on our experimental setup.
+Figure~\ref{fig:distance} shows the result for the total number of inventors
+having the same distance from Kia Silverbrook. Figure~\ref{fig:patent} shows the log-log graph of the total
+no.of patents to total no.of inventors. 
+Figure~\ref{fig:distance_patent} shows the relation of the distance from
+Kia Silverbrook and the no. of patents for an inventor. 
+
+
+
 
 % References:
 % http://www.forbes.com/innovative-companies/

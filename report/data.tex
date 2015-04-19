@@ -15,8 +15,9 @@ references.
 \subsection{Pre-processing}
 
 \begin{itemize}
-\squish
-\item {\em Collection \& Parsing:} We download the patent files from year 2005 to 2013 from the Google's portal for USPTO bulk patent download~\cite{usptodb}. These files are in various XML formats between v4.0 to v4.4. For the grant data prior to 2005, we use the truncated version from the Harvard DVN database~\cite{dvn}. Then we interpret the structured XML data, read it into python dictionaries and insert the compiled records into our SQLite database. We use the existing tools available from XML parsing and processing written in Python~\cite{newparser, formattingpatentdata, fungpaper}. 
+% \squish
+\item {\em Collection \& Parsing:} We download the patent files from year 2005 to 2013 from the Google's portal for USPTO bulk patent download~\cite{usptodb}. These files are in various XML formats between v4.0 to v4.4. For the grant data prior to 2005, we use the truncated version from the Harvard DVN database~\cite{dvn}. Then we interpret the structured XML data, read it into python dictionaries and insert the compiled records into our SQLite database. We use the existing tools available from XML parsing and processing written in 
+Python~\cite{newparser, formattingpatentdata}. 
 
 \item {\em Disambiguation:} We run the author and organization disambiguation algorithms on this dataset, to cluster the inventors and organizations. Each unique entity is assigned a new internal ID, which we used for our graphs. The information about the disambiguated records is incorporated back in the database. 
 
@@ -29,7 +30,7 @@ Figure~\ref{process} summarizes the data collection, parsing and disambiguation 
 In summary, we extract the following fields from each patent that we parse :
 
 \begin{itemize}
-\squish
+% \squish
 \item {\em Attributes for co-inventor relationship}:
 Inventor name, inventor address, assignee name, assignee address, year of patent grant.
 
@@ -45,8 +46,9 @@ Apart from the primary dataset from USPTO, we use secondary data sets which are 
 \begin{figure}[H]
 		  \centering	
           \includegraphics[scale=0.4]{../figures/process.pdf}
-          \label{process}
           \caption{Overview of data collection and pre-processing steps to generate the co-inventorship and citation graphs.}
+          \label{process}
+
 \end{figure}
 
 

@@ -9,7 +9,7 @@ answering  our goals using the patent dataset.
 
 
 	\begin{itemize}
-		\squish
+		% \squish
 		\item We use IGraph for all our graph analysis and metric
 		calculation~\cite{gephi, igraph}. 
 		
@@ -21,7 +21,7 @@ answering  our goals using the patent dataset.
 
 \subsection{Evaluation Steps}
 	\begin{itemize}
-		\squish
+		% \squish
 		\item {\em Evaluation Phase I - Collaborative Distance:} We calculated the 
 		shortest path of each inventor w.r.t to Kia Silverbrook. We used three
 		algorithms viz. Djikstra, Bellman-Ford, Johnson from IGraph to do this. We
@@ -113,7 +113,7 @@ Microsoft Corp               & 5                                          & 18  
 		Patents with zero citations & $1349956$ \\
 		\hline
 	\end{tabular}		
-	\caption { Details of the co-authorship graph}
+	\caption { Details of the co-authorship graph.}
 	\label{tab:model}
 \end{table}	
 
@@ -184,15 +184,20 @@ succeeds in covering the qualitative aspects of innovation.
 
 
 \subsection{Miscellaneous Results}
+
+Apart from answering the research questions, we also report the statistics about the inventor network that we collected during our study:
+ 
 	\begin{itemize}
-	\squish
+	% \squish
 	\item {\em Graph Details.}
 	Table~\ref{tab:model} gives the details
-	about Graph G1 in terms of its total number of nodes , edges , patents, the
-	source node  of the graph and the average distance between the source node and
-	all other nodes.   We choose Kia Silverbrook as our source node as he is one
+	about Graph G1 in terms of its total number of inventors (nodes), patents (edges), and the
+	source node of the graph. We choose Kia Silverbrook as our source node as he is one
 	of the top and popular inventors in the patent dataset with maximum number of
 	patents. We calculate the shortest path of all other nodes from Kia Silverbrook.
+	Our analysis shows that there are $6217$ inventors within Kia Silverbrook's organizations 
+	and $1817586$ inventors out side his organization that have infinite collaborative distance (not connected).
+	Similarly, for Graph G2, Table~\ref{tab:model} gives the total number of patents (nodes), citations (edges), island patents (i.e., patents with zero citations).
 
 	\item {\em Performance Comparison.}
 	We run three algorithms particularly Djikstra shortest path algorithm,
@@ -210,15 +215,3 @@ succeeds in covering the qualitative aspects of innovation.
 	Figure~\ref{fig:distance_patent} shows the relation of the distance from
 	Kia Silverbrook and the no. of patents for an inventor. 
 	\end{itemize}
-
-% \paragraph{Co-inventorGraph Characteristics.}
-
-
-
-
-
-
-% References:
-% http://www.forbes.com/innovative-companies/
-% http://top100innovators.com/
-% http://www.brw.com.au/lists/50-most-innovative-companies/2014/

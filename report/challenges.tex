@@ -7,12 +7,16 @@
 		\item {\em Inventor Disambiguation:} We used the previously proposed pre-
 		processing and disambiguation algorithm to generate a list of unique
 		inventors.
-		\item {\em Organization / Assignee Disambiguation:} We ran a simple pre-processing algorithm for disambiguating
+		\item {\em Organization / Assignee Disambiguation:} 
+		Initially, we did not consider to run this disambiguation, but after running initial experiments, it was clear that the results will not be accurate without this step. 
+		To this end, we ran a simple pre-processing algorithm for disambiguating
 		organization names. For example, IBM Corp. vs. International Business Machines
 		Corporation are considered different organizations currently. We used a
 		similar algorithm as for inventor disambiguation, to merge multiple assignees
 		with such names into a single entity.
-		\item{\em Selecting the correct metric:} Initially, we considered Eigenvector centrality as our metric for measuring the  impact of an innovation. On further investigation, we realised that its not the apt metric, since 
+		\item{\em Selecting the correct metric:} Initially, we considered Eigenvector centrality as our metric for measuring the impact of an innovation. On further investigation, we realised that its not the apt metric, since it does not model the impact. Instead we chose to use degree centrality as our measure. 
+		\item{\em Selecting the correct inventor for collaborative distance:} Initially, we considered Thomas Edison as our root for calculating the collaborative distance. But since his patents did not have any assignee, it was impossible to run the second phase of evaluation. So, instead we chose Kia Silverbrook who has the highest number of patents, and is thus similar to  Paul Erdos in context of academic publications~\cite{erdos}. 
+		\item{\em Validating the soundness of our metric:} Initially, we considered Forbes as our reference for validating the soundness of our metric. Forbes list is calculated by projecting a company’s income from existing businesses, anticipated growth from those businesses, the net present value of those cash flow, ROI, etc.~\cite{forbeshow}. These parameters are based on the revenue impact of the innovation . In our metrics, impact is based on whether the invention fosters further research in that area. Hence, Forbes list is not a  fair baseline for comparison. Instead, we aim to compare the qualitative and quantitative aspects of our metric independently by comparing it to Reuters and 24/7 Wall Street respectively.
 		% \item{\em Considering time as a factor:} Optionally, we plan to study the evolution 
 		% of the citation and the co-authorship network over a period of time, and if forming a 
 		% link leads to increase / decrease in our measures. We have retained the time 

@@ -11,7 +11,7 @@ This section will first introduces the background of all the techniques and obje
 this work. Later on we discuss about the related work studying the United States patents.
 \subsection{Background}
 The object we study in this paper is US patent dataset, and the techniques we use in this work typically include
-shortest path algorithms and eigen vector centrality.
+shortest path algorithms and degree centrality.
 \subsubsection{US Patent Dataset}%  
 United States patent dataset has become widely
 accessible to researchers and public since the early 1990. The rich
@@ -161,7 +161,7 @@ different questions from previous work. More specifically, we investigate the re
 an inventor to the central of the network and his innovative capacity. We also study the impact of organization and how that impact will affect on the innovator of that organization.
 
 \paragraph{Centrality of patent network} A large body of work focuses on the centrality 
-of patent network to evaluate innovation performance and the affect of inventor/organization to the innovation activity~\cite{Kim2013944, aktamov, Lee2010}. Those papers study the centrality of the patent network for a particular field of science to investigate the technology evolution in each field. For example, in~\cite{Lee2010}, the authors calculate the Degree Centrality, Betweenness Centrality, Closeness Centrality and  a distance-based patent citation map of the electrical conducting polymer nanocomposite patents network to reveal the phenomenal or important techniques. In this work, on the other hand, we use the eigenvalue centrality to find the most impactful inventor $A$ and see if the distance from another inventor $B$ to $A$ has some relationship with the impact of $B$. 
+of patent network to evaluate innovation performance and the affect of inventor/organization to the innovation activity~\cite{Kim2013944, aktamov, Lee2010}. Those papers study the centrality of the patent network for a particular field of science to investigate the technology evolution in each field. For example, in~\cite{Lee2010}, the authors calculate the Degree Centrality, Betweenness Centrality, Closeness Centrality and  a distance-based patent citation map of the electrical conducting polymer nanocomposite patents network to reveal the phenomenal or important techniques. In this work,  we use the degree centrality to find the most impactful inventor $A$ and see if the distance from another inventor $B$ to $A$ has some relationship with the impact of $B$. 
 
 \paragraph{Extracting and formating data in patent.}  A general technical
 problem when doing patent analysis is --- how to extract and format data from

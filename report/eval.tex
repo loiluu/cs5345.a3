@@ -2,12 +2,12 @@
 \label{sec:eval}
 
 
-\begin{table*}[t] 
-  %\centering
-	\scriptsize
-  \begin{tabular}{@{}c@{}} 
-  \begin{minipage}{0.4\linewidth}
-		\begin{center}
+% \begin{table*}[t] 
+%   %\centering
+% 	\scriptsize
+%   \begin{tabular}{@{}c@{}} 
+%   \begin{minipage}{0.4\linewidth}
+		\begin{table}
 	  		\begin{tabular}{| l | l |}
 				\hline
 				
@@ -21,9 +21,10 @@
 			\end{tabular}		
 			\caption {\scriptsize Details of the co-authorship graph}
 			\label{tab:model}
+		\end{table}	
+			% \vspace{0.85cm}
 
-			\vspace{0.85cm}
-
+		\begin{table}	
 			\begin{tabular}{| l | l |}
 				\hline
 				{Algorithm} & {Time (sec)} \\
@@ -36,42 +37,43 @@
 			\end{tabular}
 			\caption {\scriptsize Performance of the three shortest path algorithms}
 			\label{tab:algos}
-		\end{center}
+		\end{table}					
+		% \end{center}
 
-  \end{minipage}
-  \hspace{0.05\linewidth}
-  \begin{minipage}{0.45\linewidth}
+  % \end{minipage}
+  % \hspace{0.05\linewidth}
+  % \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/distance.pdf}
           \caption{\scriptsize Graph shows the frequency of nodes on Y-axis and the distance from
 		Edison on X-axis }
 	  \label{fig:distance}
       \end{figure}
-  \end{minipage}
-  \end{tabular}
-\end{table*}
+%   \end{minipage}
+%   \end{tabular}
+% \end{table*}
 
 % \end{minipage}
 
-\begin{table*}[h] 
-  %\centering
-  \begin{tabular}{@{}c@{}} 
-   \begin{minipage}{0.45\linewidth}
+% \begin{table*}[h] 
+%   %\centering
+%   \begin{tabular}{@{}c@{}} 
+%    \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/patent.pdf}
           \caption{\scriptsize Log-log scale graph of no. of patents on Y-axis and the no.of inventors on X-axis}
 	  \label{fig:patent}	
       \end{figure}
-  \end{minipage}
-  \begin{minipage}{0.45\linewidth}
+  % \end{minipage}
+  % \begin{minipage}{0.45\linewidth}
       \begin{figure}[H]
           \includegraphics[scale=0.425]{../figures/distance_patent.pdf}
           \caption{\scriptsize Relationship graph of no. of patents of an inventor and his distance from Edison}
 	  \label{fig:distance_patent}
       \end{figure}
-  \end{minipage}
-  \end{tabular}
-\end{table*}
+%   \end{minipage}
+%   \end{tabular}
+% \end{table*}
 
 We describe in detail our implementation method and evaluation procedure for
 answering  our goals using the patent dataset. 

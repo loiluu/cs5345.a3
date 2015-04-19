@@ -10,8 +10,8 @@ answering  our goals using the patent dataset.
 
 	\begin{itemize}
 		% \squish
-		\item We use IGraph C library for all our graph analysis and metric
-		calculation~\cite{gephi, igraph}. We use \texttt{matplotlib} library from Python to plot all our graphs~\cite{python}.
+		\item We use IGraph library for all our graph analysis and metric
+		calculation~\cite{igraph}. We use \texttt{matplotlib} library from Python to plot all our graphs.
 		
 		\item The configuration of our experimental desktop machine is RAM $32$ GB, $12$
 		core with processor speed of $2.6$ GHz Intel® Xeon(R) CPU E5-2630 v2 and platform is Ubuntu $14.04$.
@@ -22,20 +22,19 @@ answering  our goals using the patent dataset.
 \subsection{Evaluation Steps}
 	\begin{itemize}
 		% \squish
-		\item {\em Evaluation Phase I - Collaborative Distance:} We calculated the 
-		shortest path of each inventor w.r.t to Kia Silverbrook. We used three
+		\item {\em Evaluation Phase I - Collaborative Distance:} We calculate the 
+		shortest path of each inventor w.r.t to Kia Silverbrook. We use three
 		algorithms viz. Djikstra, Bellman-Ford, Johnson from IGraph to do this. We
-		also analyzed their scalability with respect to the invention network graph
-		and compared their performance.
-		\item {\em Social Network Behavior:} Computed the distribution of the 
-		collaborative distance w.r.t. Kia Silverbrook for our network, and also studied
-		if the overall network follows power law for various popularity measures.
-		\item {\em Evaluation Phase II - Degree centrality:} Use the in-built
+		also analyze their scalability with respect to the invention network graph
+		and compare their performance.
+		\item {\em Social Network Behavior:} We compute the distribution of the 
+		collaborative distance w.r.t. Kia Silverbrook for our network.
+		\item {\em Evaluation Phase II - Degree centrality:} We use the in-built
 		algorithm in IGraph to calculate degree centrality
 		for each unique inventor and organization with respect to patents that cite his / her patent.
-		\item {\em Data analysis and comparison:} Plot the graphs for the above
+		\item {\em Data analysis and comparison:} We plot the graphs for the above
 		generated data and analyze the relationship between the above two
-		measurements. Compare our ranking results for the most innovative organization
+		measurements. Then, we compare our ranking results for the most innovative organization
 		with publicly available list such as Reuters list, to check if our ranking
 		metric coincides with the results of other metrics.
 	\end{itemize}
@@ -47,7 +46,7 @@ answering  our goals using the patent dataset.
 \paragraph{Answer 1.}
 We first calculate the total number of citations for each inventor from Graph G2. Using the collaboration distance calculated from G1, we plot a graph of distance (connectedness) vs. total number of citations (invention impact) of each inventor. 
 Figure~\ref{fig:distance_citation} shows the relation of the distance from
-Kia Silverbrook and the no. of total citations for an inventor. This graph gives a positive answers our Question 1: 
+Kia Silverbrook and the no. of total citations for an inventor. This graph gives a positive answer to Question 1: 
 Yes, an inventor is more impactful because he is closely
 connected to other impactful inventors in the patent social network.
 
